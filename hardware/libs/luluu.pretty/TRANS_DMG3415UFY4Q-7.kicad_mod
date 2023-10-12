@@ -5,7 +5,7 @@
       (effects (font (size 0.48 0.48) (thickness 0.15)))
     (tstamp 868f16e6-434d-49a2-a35f-e08899ab2f2a)
   )
-  (fp_text value "TRANS_DMG3415UFY4Q-7" (at 4.696 1.5423) (layer "F.Fab")
+  (fp_text value "TRANS_DMG3415UFY4Q-7" (at 0 1.4) (layer "F.Fab")
       (effects (font (size 0.48 0.48) (thickness 0.15)))
     (tstamp 3ef1adab-b176-4208-a8dc-e22d7cbd4dd9)
   )
