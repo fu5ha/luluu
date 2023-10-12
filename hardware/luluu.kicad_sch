@@ -1792,35 +1792,35 @@
         )
       )
     )
-    (symbol "luluu:W25Q64JVSS" (in_bom yes) (on_board yes)
+    (symbol "luluu:W25QXXJVSS" (in_bom yes) (on_board yes)
       (property "Reference" "U" (at -6.35 11.43 0)
         (effects (font (size 1.27 1.27)))
       )
-      (property "Value" "W25Q64JVSS" (at -1.27 -11.43 0)
+      (property "Value" "W25QXXJVSS" (at -1.27 -11.43 0)
         (effects (font (size 1.27 1.27)))
       )
       (property "Footprint" "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm" (at -1.27 -15.24 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Datasheet" "http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf" (at 0 -19.05 0)
+      (property "Datasheet" "https://datasheet.lcsc.com/lcsc/1811142111_Winbond-Elec-W25Q128JVSIQ_C97521.pdf" (at 0 -19.05 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_keywords" "flash memory SPI" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "32Mb Serial Flash Memory, Standard/Dual/Quad SPI, SOIC-8" (at 0 0 0)
+      (property "ki_description" "XXMb Serial Flash Memory, Standard/Dual/Quad SPI, SOIC-8" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_fp_filters" "SOIC*5.23x5.23mm*P1.27mm*" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "W25Q64JVSS_0_1"
+      (symbol "W25QXXJVSS_0_1"
         (rectangle (start -7.62 10.16) (end 7.62 -10.16)
           (stroke (width 0.254) (type default))
           (fill (type background))
         )
       )
-      (symbol "W25Q64JVSS_1_1"
+      (symbol "W25QXXJVSS_1_1"
         (pin input line (at -10.16 6.35 0) (length 2.54)
           (name "~{CS}" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
@@ -2172,6 +2172,9 @@
   (junction (at 109.22 93.98) (diameter 0) (color 0 0 0 0)
     (uuid 1e191653-7645-4468-84c2-51b39cfded01)
   )
+  (junction (at 119.38 76.2) (diameter 0) (color 0 0 0 0)
+    (uuid 1e7bb2f1-c06f-47aa-befc-4a6f1d1814e5)
+  )
   (junction (at 119.38 91.44) (diameter 0) (color 0 0 0 0)
     (uuid 206137b3-1f30-4ba3-ac8f-5397b684a6b5)
   )
@@ -2193,6 +2196,9 @@
   (junction (at 254 143.51) (diameter 0) (color 0 0 0 0)
     (uuid 345a93c6-db12-4735-971f-9021a22d5d69)
   )
+  (junction (at 264.16 81.28) (diameter 0) (color 0 0 0 0)
+    (uuid 34693cba-1aee-45e9-897c-b76a95946cb9)
+  )
   (junction (at 19.05 102.87) (diameter 0) (color 0 0 0 0)
     (uuid 36426697-d8d5-4d43-a0ba-22e93e951870)
   )
@@ -2202,11 +2208,11 @@
   (junction (at 106.68 83.82) (diameter 0) (color 0 0 0 0)
     (uuid 419e18ea-9dc8-4873-86e3-d6533cbff8a3)
   )
-  (junction (at 130.81 76.2) (diameter 0) (color 0 0 0 0)
-    (uuid 41f18835-0f3e-40da-8633-9a3aa11e135f)
-  )
   (junction (at 132.08 33.02) (diameter 0) (color 0 0 0 0)
     (uuid 4919ef87-0986-4560-91fc-6987bdc479f9)
+  )
+  (junction (at 129.54 76.2) (diameter 0) (color 0 0 0 0)
+    (uuid 4ad2a3b0-8020-46c6-9e6f-1be1d358d733)
   )
   (junction (at 19.05 29.21) (diameter 0) (color 0 0 0 0)
     (uuid 5af7633b-6089-4a35-97c3-0730704d7179)
@@ -2232,9 +2238,6 @@
   (junction (at 76.2 102.87) (diameter 0) (color 0 0 0 0)
     (uuid 743321e1-2174-424d-adf2-a6f4b9b7fa8e)
   )
-  (junction (at 120.65 68.58) (diameter 0) (color 0 0 0 0)
-    (uuid 7a544b03-a1b7-4b12-bd20-b3dbd3f15020)
-  )
   (junction (at 106.68 93.98) (diameter 0) (color 0 0 0 0)
     (uuid 821a1990-8d83-42c4-add6-6d02e45ecc85)
   )
@@ -2246,6 +2249,9 @@
   )
   (junction (at 54.61 158.75) (diameter 0) (color 0 0 0 0)
     (uuid 85b3a972-21c3-4c74-a088-67919f5b20cb)
+  )
+  (junction (at 273.05 88.9) (diameter 0) (color 0 0 0 0)
+    (uuid 888f4f5c-40fb-4229-9034-6fba8b6420c8)
   )
   (junction (at 254 140.97) (diameter 0) (color 0 0 0 0)
     (uuid 8c28854e-da25-4c87-bcd2-44ea742277a1)
@@ -2286,6 +2292,9 @@
   (junction (at 40.64 158.75) (diameter 0) (color 0 0 0 0)
     (uuid c2d4b112-d077-4724-9d74-2cb0cf954737)
   )
+  (junction (at 254 81.28) (diameter 0) (color 0 0 0 0)
+    (uuid c46b84ad-ade2-42ce-95b6-c24618cc1ddc)
+  )
   (junction (at 40.64 35.56) (diameter 0) (color 0 0 0 0)
     (uuid c6003163-3818-4d2e-aa26-14664a536555)
   )
@@ -2307,9 +2316,6 @@
   (junction (at 24.13 102.87) (diameter 0) (color 0 0 0 0)
     (uuid d621dc8c-c383-4d16-8286-a707f634b4b7)
   )
-  (junction (at 120.65 76.2) (diameter 0) (color 0 0 0 0)
-    (uuid dba79e99-e86f-4bb0-8f60-79f1cc34b815)
-  )
   (junction (at 267.97 40.64) (diameter 0) (color 0 0 0 0)
     (uuid e449150d-a771-4eaf-ad52-5eef393c83e2)
   )
@@ -2330,6 +2336,9 @@
   )
   (junction (at 34.29 35.56) (diameter 0) (color 0 0 0 0)
     (uuid f4853c08-1c16-43ed-acdb-bd506d0fd43f)
+  )
+  (junction (at 119.38 68.58) (diameter 0) (color 0 0 0 0)
+    (uuid f4d0c5b7-6988-4032-8f04-8c8904530810)
   )
   (junction (at 149.86 83.82) (diameter 0) (color 0 0 0 0)
     (uuid fa84d7a0-3bfc-4cf2-98c8-9e868ff307d4)
@@ -2380,6 +2389,10 @@
     (stroke (width 0) (type default))
     (uuid 0202e601-44e8-4b1c-b54b-5a1d7c278b6d)
   )
+  (wire (pts (xy 278.13 88.9) (xy 273.05 88.9))
+    (stroke (width 0) (type default))
+    (uuid 0341c5bf-24ff-4498-ac7d-26f781fd1422)
+  )
   (wire (pts (xy 266.7 43.18) (xy 267.97 43.18))
     (stroke (width 0) (type default))
     (uuid 06645978-849e-4902-ac0d-94c086e99939)
@@ -2403,6 +2416,10 @@
   (wire (pts (xy 255.27 102.87) (xy 246.38 102.87))
     (stroke (width 0) (type default))
     (uuid 0a238671-cba6-4a66-9f01-ec2de32079dc)
+  )
+  (wire (pts (xy 264.16 81.28) (xy 264.16 82.55))
+    (stroke (width 0) (type default))
+    (uuid 0aa908d9-44d2-4e7c-9b4d-365054493392)
   )
   (wire (pts (xy 77.47 110.49) (xy 78.74 110.49))
     (stroke (width 0) (type default))
@@ -2440,7 +2457,7 @@
     (stroke (width 0) (type default))
     (uuid 10665316-0d2b-459a-8103-f8ad50872845)
   )
-  (wire (pts (xy 120.65 74.93) (xy 120.65 76.2))
+  (wire (pts (xy 119.38 74.93) (xy 119.38 76.2))
     (stroke (width 0) (type default))
     (uuid 11f895cf-45dd-4ecf-a3ba-c59e4ae3870f)
   )
@@ -2455,6 +2472,10 @@
   (wire (pts (xy 160.02 83.82) (xy 160.02 85.09))
     (stroke (width 0) (type default))
     (uuid 145f1589-fd85-49e4-8572-54324b6891f0)
+  )
+  (wire (pts (xy 264.16 88.9) (xy 273.05 88.9))
+    (stroke (width 0) (type default))
+    (uuid 16301d99-a083-41a7-a56f-d7e4e2489379)
   )
   (wire (pts (xy 189.23 121.92) (xy 189.23 113.03))
     (stroke (width 0) (type default))
@@ -2504,6 +2525,10 @@
     (stroke (width 0) (type default))
     (uuid 24f0cf43-3d06-4c1a-8397-3b92867fddb7)
   )
+  (wire (pts (xy 254 80.01) (xy 254 81.28))
+    (stroke (width 0) (type default))
+    (uuid 24f4f37e-85d1-444d-8471-b0a4fd17dde8)
+  )
   (wire (pts (xy 152.4 27.94) (xy 146.05 27.94))
     (stroke (width 0) (type default))
     (uuid 250fb9bb-3cf6-4088-828e-bb5d96c77b52)
@@ -2512,7 +2537,7 @@
     (stroke (width 0) (type default))
     (uuid 299d5656-8631-461b-92f3-d6dde93ea333)
   )
-  (wire (pts (xy 241.3 81.28) (xy 241.3 82.55))
+  (wire (pts (xy 241.3 80.01) (xy 241.3 82.55))
     (stroke (width 0) (type default))
     (uuid 2a7f165b-1696-43c0-a65c-30a3ec988b50)
   )
@@ -2552,7 +2577,7 @@
     (stroke (width 0) (type default))
     (uuid 2f1268fb-e08a-48a5-a9c7-d19ac7a83efd)
   )
-  (wire (pts (xy 120.65 76.2) (xy 130.81 76.2))
+  (wire (pts (xy 119.38 76.2) (xy 129.54 76.2))
     (stroke (width 0) (type default))
     (uuid 2fdd51c9-51a8-4606-bc7a-a606accdc15b)
   )
@@ -2592,7 +2617,7 @@
     (stroke (width 0) (type default))
     (uuid 3675dab1-0cbc-42d0-b8a7-b059e1cdf378)
   )
-  (wire (pts (xy 130.81 74.93) (xy 130.81 76.2))
+  (wire (pts (xy 129.54 74.93) (xy 129.54 76.2))
     (stroke (width 0) (type default))
     (uuid 36a7e23a-79ca-4bf7-9046-cece39f9ba96)
   )
@@ -2756,6 +2781,10 @@
     (stroke (width 0) (type default))
     (uuid 603310d9-a05a-4269-9fb9-a5e9066f20f7)
   )
+  (wire (pts (xy 119.38 68.58) (xy 129.54 68.58))
+    (stroke (width 0) (type default))
+    (uuid 604913fd-8117-4e06-87b2-2ffd35b01a9d)
+  )
   (wire (pts (xy 266.7 45.72) (xy 267.97 45.72))
     (stroke (width 0) (type default))
     (uuid 610a9196-9053-41c6-a379-4c678c0ec716)
@@ -2823,6 +2852,10 @@
   (wire (pts (xy 182.88 43.18) (xy 184.15 43.18))
     (stroke (width 0) (type default))
     (uuid 7850a96a-7678-4bb1-92f0-6b7f196371e4)
+  )
+  (wire (pts (xy 264.16 81.28) (xy 273.05 81.28))
+    (stroke (width 0) (type default))
+    (uuid 78534065-f30b-47bf-8158-f3731df9d541)
   )
   (wire (pts (xy 170.18 83.82) (xy 160.02 83.82))
     (stroke (width 0) (type default))
@@ -2944,6 +2977,10 @@
     (stroke (width 0) (type default))
     (uuid 96c0c1a4-c93f-469a-b5a7-82f63a117304)
   )
+  (wire (pts (xy 254 81.28) (xy 264.16 81.28))
+    (stroke (width 0) (type default))
+    (uuid 96d1514e-e89e-4d34-9fa7-10b29897bec1)
+  )
   (wire (pts (xy 254 138.43) (xy 254 140.97))
     (stroke (width 0) (type default))
     (uuid 9784d68d-d912-4791-bbff-0e57e084d0e2)
@@ -2971,6 +3008,10 @@
   (wire (pts (xy 194.31 113.03) (xy 194.31 124.46))
     (stroke (width 0) (type default))
     (uuid 9c3a579b-7a6e-4c2b-af09-8940aec77a5f)
+  )
+  (wire (pts (xy 273.05 82.55) (xy 273.05 81.28))
+    (stroke (width 0) (type default))
+    (uuid 9cca2ffd-c00b-408d-bc7d-f22fcef8ea68)
   )
   (wire (pts (xy 254 110.49) (xy 254 107.95))
     (stroke (width 0) (type default))
@@ -3060,6 +3101,10 @@
     (stroke (width 0) (type default))
     (uuid ab5e3b92-65ea-4c3e-89c8-51eb1867d22f)
   )
+  (wire (pts (xy 278.13 90.17) (xy 278.13 88.9))
+    (stroke (width 0) (type default))
+    (uuid ab80f7f5-503c-4b5b-a4d6-06947ac778fd)
+  )
   (wire (pts (xy 146.05 20.32) (xy 146.05 27.94))
     (stroke (width 0) (type default))
     (uuid acaf8f97-0c76-46b6-bf3d-fed05acfac19)
@@ -3096,7 +3141,7 @@
     (stroke (width 0) (type default))
     (uuid b771edfa-66f7-4ca2-bf21-b46d2cd54131)
   )
-  (wire (pts (xy 130.81 69.85) (xy 130.81 68.58))
+  (wire (pts (xy 129.54 69.85) (xy 129.54 68.58))
     (stroke (width 0) (type default))
     (uuid b85b5645-8f7d-4aca-8f8d-64d06a1a84f9)
   )
@@ -3115,6 +3160,10 @@
   (wire (pts (xy 254 130.81) (xy 254 133.35))
     (stroke (width 0) (type default))
     (uuid bc51669a-ebea-4e37-a8c3-5672df0700c1)
+  )
+  (wire (pts (xy 273.05 88.9) (xy 273.05 87.63))
+    (stroke (width 0) (type default))
+    (uuid bd3386ef-aab1-4f66-b4ac-bc2cb5fce785)
   )
   (wire (pts (xy 101.6 93.98) (xy 101.6 95.25))
     (stroke (width 0) (type default))
@@ -3216,6 +3265,10 @@
     (stroke (width 0) (type default))
     (uuid d5be04a8-978a-4f4d-9350-0febf2d3e466)
   )
+  (wire (pts (xy 119.38 68.58) (xy 110.49 68.58))
+    (stroke (width 0) (type default))
+    (uuid d5d94237-b994-47ed-8b6d-138d4b666a0d)
+  )
   (wire (pts (xy 110.49 85.09) (xy 110.49 83.82))
     (stroke (width 0) (type default))
     (uuid d5fc353c-2d3f-4b0a-8077-bf8e5dc13801)
@@ -3232,7 +3285,7 @@
     (stroke (width 0) (type default))
     (uuid d9653c0a-071f-42dc-a9d3-09c3e1dba715)
   )
-  (wire (pts (xy 130.81 76.2) (xy 130.81 77.47))
+  (wire (pts (xy 129.54 76.2) (xy 129.54 77.47))
     (stroke (width 0) (type default))
     (uuid d99d44bd-21bc-4b0d-8054-013440ce13af)
   )
@@ -3267,6 +3320,10 @@
   (wire (pts (xy 194.31 124.46) (xy 187.96 124.46))
     (stroke (width 0) (type default))
     (uuid e5152cd3-a349-4964-9841-edbae73a1ef9)
+  )
+  (wire (pts (xy 264.16 87.63) (xy 264.16 88.9))
+    (stroke (width 0) (type default))
+    (uuid e5f9a133-0cd1-4823-a184-6487d1c18a50)
   )
   (wire (pts (xy 123.19 43.18) (xy 124.46 43.18))
     (stroke (width 0) (type default))
@@ -3376,19 +3433,11 @@
     (stroke (width 0) (type default))
     (uuid f987ae8d-29d7-4e93-be59-1f96415d96fd)
   )
-  (wire (pts (xy 110.49 76.2) (xy 120.65 76.2))
+  (wire (pts (xy 110.49 76.2) (xy 119.38 76.2))
     (stroke (width 0) (type default))
     (uuid fa22f64c-cb35-459f-84c3-b0351e9ee472)
   )
-  (wire (pts (xy 120.65 68.58) (xy 110.49 68.58))
-    (stroke (width 0) (type default))
-    (uuid fa8fa047-8e7c-474d-a34f-304aed3c4264)
-  )
-  (wire (pts (xy 130.81 68.58) (xy 120.65 68.58))
-    (stroke (width 0) (type default))
-    (uuid fc9941cf-af8f-4990-826f-ec647ca32e69)
-  )
-  (wire (pts (xy 120.65 68.58) (xy 120.65 69.85))
+  (wire (pts (xy 119.38 68.58) (xy 119.38 69.85))
     (stroke (width 0) (type default))
     (uuid ff4c1f90-4ecd-415d-a753-89be5969318e)
   )
@@ -3659,7 +3708,7 @@
   (symbol (lib_id "power:GND") (at 251.46 157.48 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0350765b-c716-45b5-8ab2-af3141ac750e)
-    (property "Reference" "#PWR020" (at 251.46 163.83 0)
+    (property "Reference" "#PWR042" (at 251.46 163.83 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 250.19 161.29 0)
@@ -3675,7 +3724,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR042") (unit 1)
         )
       )
     )
@@ -3706,10 +3755,35 @@
     )
   )
 
+  (symbol (lib_id "power:GND") (at 278.13 90.17 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid 058730fb-b30f-42fd-82a9-06c36b3cc85c)
+    (property "Reference" "#PWR046" (at 278.13 96.52 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Value" "GND" (at 276.86 93.98 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "" (at 278.13 90.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "" (at 278.13 90.17 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 701eb2b9-92df-40cc-bbf2-cce3e643ba3d))
+    (instances
+      (project "luluu"
+        (path "/74934858-45e0-400e-9259-85b77d199d77"
+          (reference "#PWR046") (unit 1)
+        )
+      )
+    )
+  )
+
   (symbol (lib_id "Device:C_Small") (at 180.34 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 079cccd2-450a-4c54-9533-f8089b216682)
-    (property "Reference" "C14" (at 182.88 86.3663 0)
+    (property "Reference" "C19" (at 182.88 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 182.88 88.9063 0)
@@ -3726,7 +3800,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C14") (unit 1)
+          (reference "C19") (unit 1)
         )
       )
     )
@@ -3735,7 +3809,7 @@
   (symbol (lib_id "Device:C_Small") (at 34.29 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0a25c8f3-3b09-4575-bbdd-840020e2050f)
-    (property "Reference" "C1" (at 36.83 45.7263 0)
+    (property "Reference" "C2" (at 36.83 45.7263 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uf" (at 36.83 48.2663 0)
@@ -3752,7 +3826,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C1") (unit 1)
+          (reference "C2") (unit 1)
         )
       )
     )
@@ -3761,7 +3835,7 @@
   (symbol (lib_id "Device:C_Small") (at 149.86 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1017606b-bd7f-4b06-bae6-5d4d594de402)
-    (property "Reference" "C11" (at 152.4 86.3663 0)
+    (property "Reference" "C16" (at 152.4 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 152.4 88.9063 0)
@@ -3778,33 +3852,33 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C11") (unit 1)
+          (reference "C16") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 120.65 72.39 0) (mirror y) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 119.38 72.39 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 133a74bb-bf48-41fb-8eba-12df4cefe52b)
-    (property "Reference" "C16" (at 127 71.12 0)
+    (property "Reference" "C10" (at 125.73 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nf" (at 128.27 73.66 0)
+    (property "Value" "100nf" (at 127 73.66 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder" (at 120.65 72.39 0)
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder" (at 119.38 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 120.65 72.39 0)
+    (property "Datasheet" "~" (at 119.38 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8214fb4b-a714-4336-b172-13393a7f9b11))
-    (pin "2" (uuid 7b57acb2-47d5-4215-b849-c063b58b9681))
+    (pin "1" (uuid 92d34270-aa25-44df-8abc-b54aa22fae1c))
+    (pin "2" (uuid 87df6268-cd73-4d44-9f4f-21c70bbdf3af))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C16") (unit 1)
+          (reference "C10") (unit 1)
         )
       )
     )
@@ -3840,7 +3914,7 @@
   (symbol (lib_id "power:GND") (at 63.5 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1e87ba51-4151-4980-8316-7d1195e6d60a)
-    (property "Reference" "#PWR036" (at 63.5 110.49 0)
+    (property "Reference" "#PWR012" (at 63.5 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 62.23 107.95 0)
@@ -3856,7 +3930,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR036") (unit 1)
+          (reference "#PWR012") (unit 1)
         )
       )
     )
@@ -3865,7 +3939,7 @@
   (symbol (lib_id "power:+3V3") (at 106.68 82.55 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1ee8c5a7-f68b-4472-8eeb-a2c55d72d167)
-    (property "Reference" "#PWR033" (at 106.68 86.36 0)
+    (property "Reference" "#PWR021" (at 106.68 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 109.22 78.74 0)
@@ -3877,36 +3951,36 @@
     (property "Datasheet" "" (at 106.68 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b565a20e-15ff-435b-a4cc-372e12e9f712))
+    (pin "1" (uuid f3e6bbf2-5e74-4173-8320-6ae3a2db5558))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR021") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "power:GND") (at 130.81 77.47 0) (mirror y) (unit 1)
+  (symbol (lib_id "power:GND") (at 129.54 77.47 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1f76b19c-79d1-4e2b-90b3-917abf4f8278)
-    (property "Reference" "#PWR031" (at 130.81 83.82 0)
+    (property "Reference" "#PWR023" (at 129.54 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 133.35 81.28 0)
+    (property "Value" "GND" (at 132.08 81.28 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 130.81 77.47 0)
+    (property "Footprint" "" (at 129.54 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 130.81 77.47 0)
+    (property "Datasheet" "" (at 129.54 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e4b4fc17-47df-43af-bed3-d558cf0bf1c3))
+    (pin "1" (uuid 9d4ea8eb-f0be-48e5-8f4e-94bb5a66f751))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR031") (unit 1)
+          (reference "#PWR023") (unit 1)
         )
       )
     )
@@ -3915,7 +3989,7 @@
   (symbol (lib_id "power:GND") (at 246.38 105.41 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 20bce636-d9a6-4310-85b9-7b5403c66ec4)
-    (property "Reference" "#PWR024" (at 246.38 111.76 0)
+    (property "Reference" "#PWR040" (at 246.38 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 245.11 109.22 0)
@@ -3931,7 +4005,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR040") (unit 1)
         )
       )
     )
@@ -3940,7 +4014,7 @@
   (symbol (lib_id "power:+5V") (at 267.97 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 22708cfc-45cf-4016-94a1-e6f448c502be)
-    (property "Reference" "#PWR016" (at 267.97 24.13 0)
+    (property "Reference" "#PWR044" (at 267.97 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 265.43 16.51 0)
@@ -3956,7 +4030,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR016") (unit 1)
+          (reference "#PWR044") (unit 1)
         )
       )
     )
@@ -3965,7 +4039,7 @@
   (symbol (lib_id "power:+5V") (at 97.79 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 257f5ae6-9468-42ed-8f35-b7221a697437)
-    (property "Reference" "#PWR012" (at 97.79 24.13 0)
+    (property "Reference" "#PWR017" (at 97.79 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 95.25 16.51 0)
@@ -3981,7 +4055,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR012") (unit 1)
+          (reference "#PWR017") (unit 1)
         )
       )
     )
@@ -3990,7 +4064,7 @@
   (symbol (lib_id "power:+3V3") (at 19.05 101.6 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 279f165b-3a07-4641-afc9-184051479ce6)
-    (property "Reference" "#PWR028" (at 19.05 105.41 0)
+    (property "Reference" "#PWR03" (at 19.05 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 21.59 97.79 0)
@@ -4006,7 +4080,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR028") (unit 1)
+          (reference "#PWR03") (unit 1)
         )
       )
     )
@@ -4015,7 +4089,7 @@
   (symbol (lib_id "Device:C_Small") (at 139.7 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 2915ea02-788e-4259-91ef-c9e55ccb7667)
-    (property "Reference" "C10" (at 142.24 86.3663 0)
+    (property "Reference" "C15" (at 142.24 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 142.24 88.9063 0)
@@ -4032,7 +4106,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C10") (unit 1)
+          (reference "C15") (unit 1)
         )
       )
     )
@@ -4041,7 +4115,7 @@
   (symbol (lib_id "power:GND") (at 124.46 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 2b39182a-0803-44c8-8539-2f28077584b4)
-    (property "Reference" "#PWR011" (at 124.46 57.15 0)
+    (property "Reference" "#PWR022" (at 124.46 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 123.19 54.61 0)
@@ -4057,7 +4131,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR011") (unit 1)
+          (reference "#PWR022") (unit 1)
         )
       )
     )
@@ -4092,7 +4166,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x02") (at 152.4 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 322e2dfa-2b03-4411-829e-03975b1c08d4)
-    (property "Reference" "J4" (at 154.94 34.29 0)
+    (property "Reference" "J1" (at 154.94 34.29 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "BATT_CON" (at 154.94 36.83 0)
@@ -4109,7 +4183,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J4") (unit 1)
+          (reference "J1") (unit 1)
         )
       )
     )
@@ -4118,7 +4192,7 @@
   (symbol (lib_id "power:+3V3") (at 76.2 93.98 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 383f5dee-1759-422a-9480-c6ade6ceccb7)
-    (property "Reference" "#PWR035" (at 76.2 97.79 0)
+    (property "Reference" "#PWR014" (at 76.2 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 78.74 90.17 0)
@@ -4134,7 +4208,33 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR014") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C_Small") (at 264.16 85.09 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 3b931498-7c2d-4773-a6c2-12c76f9b1466)
+    (property "Reference" "C20" (at 266.7 83.8263 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "10uf" (at 266.7 86.3663 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 264.16 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 264.16 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 2d98c8a2-5797-40f7-b92d-362ae7b1e20f))
+    (pin "2" (uuid 486a06d6-8b59-4ecf-9ff8-a07b820132d1))
+    (instances
+      (project "luluu"
+        (path "/74934858-45e0-400e-9259-85b77d199d77"
+          (reference "C20") (unit 1)
         )
       )
     )
@@ -4143,7 +4243,7 @@
   (symbol (lib_id "power:GND") (at 104.14 187.96 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3cda3aaf-d75e-4fbe-9248-d4046d4bdc42)
-    (property "Reference" "#PWR018" (at 104.14 194.31 0)
+    (property "Reference" "#PWR019" (at 104.14 194.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 102.87 191.77 0)
@@ -4159,7 +4259,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR018") (unit 1)
+          (reference "#PWR019") (unit 1)
         )
       )
     )
@@ -4168,7 +4268,7 @@
   (symbol (lib_id "power:GND") (at 19.05 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3f6be25b-428b-4f0a-89b2-24558f8b0531)
-    (property "Reference" "#PWR010" (at 19.05 57.15 0)
+    (property "Reference" "#PWR02" (at 19.05 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 17.78 54.61 0)
@@ -4184,7 +4284,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR010") (unit 1)
+          (reference "#PWR02") (unit 1)
         )
       )
     )
@@ -4193,7 +4293,7 @@
   (symbol (lib_id "power:GND") (at 251.46 67.31 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3fecd355-2e21-45f7-a09a-ce3cb947ce07)
-    (property "Reference" "#PWR019" (at 251.46 73.66 0)
+    (property "Reference" "#PWR041" (at 251.46 73.66 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 250.19 71.12 0)
@@ -4209,7 +4309,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR019") (unit 1)
+          (reference "#PWR041") (unit 1)
         )
       )
     )
@@ -4218,7 +4318,7 @@
   (symbol (lib_id "Device:C_Small") (at 81.28 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4152a254-4daa-478f-a771-9226eaba304f)
-    (property "Reference" "C3" (at 83.82 45.7263 0)
+    (property "Reference" "C6" (at 83.82 45.7263 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uf" (at 83.82 48.2663 0)
@@ -4235,7 +4335,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C3") (unit 1)
+          (reference "C6") (unit 1)
         )
       )
     )
@@ -4244,7 +4344,7 @@
   (symbol (lib_id "power:GND") (at 53.34 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 41567ef0-c042-417a-a289-93ea69d4d666)
-    (property "Reference" "#PWR027" (at 53.34 110.49 0)
+    (property "Reference" "#PWR010" (at 53.34 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 52.07 107.95 0)
@@ -4260,7 +4360,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR010") (unit 1)
         )
       )
     )
@@ -4269,7 +4369,7 @@
   (symbol (lib_id "luluu:STEMMA_QT_I2C") (at 182.88 125.73 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4173e76e-0030-47d6-afff-b6d90ccf2078)
-    (property "Reference" "J2" (at 180.34 116.84 0)
+    (property "Reference" "J3" (at 180.34 116.84 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "STEMMA_{QT} I_{2}C (JST SH)" (at 187.96 134.62 0)
@@ -4288,7 +4388,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J2") (unit 1)
+          (reference "J3") (unit 1)
         )
       )
     )
@@ -4297,7 +4397,7 @@
   (symbol (lib_id "Device:C_Small") (at 45.72 158.75 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 424c4c00-05b9-44b2-a6eb-da9e02e53933)
-    (property "Reference" "C20" (at 43.18 162.56 90)
+    (property "Reference" "C4" (at 43.18 162.56 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "30pf" (at 48.26 162.56 90)
@@ -4314,7 +4414,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C20") (unit 1)
+          (reference "C4") (unit 1)
         )
       )
     )
@@ -4323,7 +4423,7 @@
   (symbol (lib_id "Device:C_Small") (at 110.49 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 443ddf1c-d715-4445-a30a-ab233f644d7c)
-    (property "Reference" "C18" (at 113.03 86.3663 0)
+    (property "Reference" "C12" (at 113.03 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1uf" (at 113.03 88.9063 0)
@@ -4340,7 +4440,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C18") (unit 1)
+          (reference "C12") (unit 1)
         )
       )
     )
@@ -4349,7 +4449,7 @@
   (symbol (lib_id "power:GND") (at 81.28 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 451f0f42-d5b0-4f1f-adef-b743e9ad8789)
-    (property "Reference" "#PWR08" (at 81.28 57.15 0)
+    (property "Reference" "#PWR016" (at 81.28 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 80.01 54.61 0)
@@ -4365,7 +4465,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR08") (unit 1)
+          (reference "#PWR016") (unit 1)
         )
       )
     )
@@ -4374,7 +4474,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x03") (at 179.07 153.67 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4793623b-2b8a-4802-9161-13676c6d1f3b)
-    (property "Reference" "J5" (at 176.53 146.05 0)
+    (property "Reference" "J2" (at 176.53 146.05 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "SWD_PI_3WIRE" (at 176.53 148.59 0)
@@ -4392,7 +4492,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J5") (unit 1)
+          (reference "J2") (unit 1)
         )
       )
     )
@@ -4427,7 +4527,7 @@
   (symbol (lib_id "MCU_RaspberryPi:RP2040") (at 104.14 140.97 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 49f1b738-06fe-4327-92ef-c4298574ccf6)
-    (property "Reference" "U1" (at 106.3341 185.42 0)
+    (property "Reference" "U3" (at 106.3341 185.42 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "RP2040" (at 106.3341 187.96 0)
@@ -4499,7 +4599,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "U1") (unit 1)
+          (reference "U3") (unit 1)
         )
       )
     )
@@ -4508,7 +4608,7 @@
   (symbol (lib_id "power:+BATT") (at 34.29 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 4c52ed36-bb48-4123-afaa-a98a891b71b7)
-    (property "Reference" "#PWR03" (at 34.29 24.13 0)
+    (property "Reference" "#PWR06" (at 34.29 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+BATT" (at 31.75 16.51 0)
@@ -4524,7 +4624,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR03") (unit 1)
+          (reference "#PWR06") (unit 1)
         )
       )
     )
@@ -4559,7 +4659,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 45.72 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 540626bb-f90a-4147-8dbf-c9ec5fed4aec)
-    (property "Reference" "#FLG02" (at 45.72 32.385 0)
+    (property "Reference" "#FLG01" (at 45.72 32.385 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 52.07 31.75 0)
@@ -4575,7 +4675,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#FLG02") (unit 1)
+          (reference "#FLG01") (unit 1)
         )
       )
     )
@@ -4584,7 +4684,7 @@
   (symbol (lib_id "power:+3V3") (at 81.28 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5a761e18-7335-4525-9d05-6bbaaa341f61)
-    (property "Reference" "#PWR06" (at 81.28 24.13 0)
+    (property "Reference" "#PWR015" (at 81.28 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 78.74 16.51 0)
@@ -4600,7 +4700,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR06") (unit 1)
+          (reference "#PWR015") (unit 1)
         )
       )
     )
@@ -4609,7 +4709,7 @@
   (symbol (lib_id "power:GND") (at 60.96 153.67 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5de2b5d3-1653-411b-8a60-10c87e4fd0d2)
-    (property "Reference" "#PWR04" (at 67.31 153.67 0)
+    (property "Reference" "#PWR011" (at 67.31 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 64.77 154.94 0)
@@ -4625,7 +4725,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR04") (unit 1)
+          (reference "#PWR011") (unit 1)
         )
       )
     )
@@ -4634,7 +4734,7 @@
   (symbol (lib_id "Device:C_Small") (at 129.54 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5e775b03-0624-469b-aebd-ffc8b8e37f52)
-    (property "Reference" "C9" (at 132.08 86.3663 0)
+    (property "Reference" "C14" (at 132.08 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 132.08 88.9063 0)
@@ -4651,7 +4751,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C9") (unit 1)
+          (reference "C14") (unit 1)
         )
       )
     )
@@ -4711,7 +4811,7 @@
   (symbol (lib_id "power:GND") (at 215.9 118.11 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6240ded4-2d7f-47a6-ae9f-3cddd9ca060e)
-    (property "Reference" "#PWR026" (at 215.9 124.46 0)
+    (property "Reference" "#PWR036" (at 215.9 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 214.63 121.92 0)
@@ -4727,7 +4827,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -4736,7 +4836,7 @@
   (symbol (lib_id "Device:R_Small") (at 241.3 85.09 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 62cb80d2-be06-41c6-a838-809fc02104cc)
-    (property "Reference" "R7" (at 242.57 83.82 0)
+    (property "Reference" "R9" (at 242.57 83.82 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "5.1k" (at 242.57 86.36 0)
@@ -4753,32 +4853,32 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R7") (unit 1)
+          (reference "R9") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "power:+3V3") (at 241.3 81.28 0) (unit 1)
+  (symbol (lib_id "power:+3V3") (at 241.3 80.01 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 65ab7230-0bd9-4fbc-aa76-a0f1c3a08cd6)
-    (property "Reference" "#PWR021" (at 241.3 85.09 0)
+    (property "Reference" "#PWR039" (at 241.3 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "+3V3" (at 240.03 77.47 0)
+    (property "Value" "+3V3" (at 240.03 76.2 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (at 241.3 81.28 0)
+    (property "Footprint" "" (at 241.3 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 241.3 81.28 0)
+    (property "Datasheet" "" (at 241.3 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid eda6309a-0aef-4ade-beed-ace087ff01e7))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR039") (unit 1)
         )
       )
     )
@@ -4787,7 +4887,7 @@
   (symbol (lib_id "Device:C_Small") (at 45.72 148.59 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 69e3760b-84e6-46e8-a97c-26c8c04f8c5d)
-    (property "Reference" "C19" (at 43.18 144.78 90)
+    (property "Reference" "C3" (at 43.18 144.78 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "30pf" (at 48.26 144.78 90)
@@ -4804,7 +4904,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C19") (unit 1)
+          (reference "C3") (unit 1)
         )
       )
     )
@@ -4813,7 +4913,7 @@
   (symbol (lib_id "power:+3V3") (at 215.9 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6c4e4bf0-7cb5-4347-9ccc-17d939f62320)
-    (property "Reference" "#PWR025" (at 215.9 111.76 0)
+    (property "Reference" "#PWR035" (at 215.9 111.76 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 214.63 104.14 0)
@@ -4829,25 +4929,25 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR035") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "luluu:W25Q64JVSS") (at 30.48 127 0) (mirror y) (unit 1)
+  (symbol (lib_id "luluu:W25QXXJVSS") (at 30.48 127 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 70d6e579-7dc0-4317-b828-a85ac0183884)
-    (property "Reference" "U6" (at 30.48 115.57 0)
+    (property "Reference" "U1" (at 30.48 115.57 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "W25Q64JVSS" (at 29.21 138.43 0)
+    (property "Value" "W25Q128JVSS" (at 29.21 138.43 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Package_SO:SOIC-8_5.23x5.23mm_P1.27mm" (at 31.75 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf" (at 30.48 146.05 0)
+    (property "Datasheet" "https://datasheet.lcsc.com/lcsc/1811142111_Winbond-Elec-W25Q128JVSIQ_C97521.pdf" (at 30.48 146.05 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 632f2a89-e714-4756-a4b9-e11b02da1d46))
@@ -4861,7 +4961,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "U6") (unit 1)
+          (reference "U1") (unit 1)
         )
       )
     )
@@ -4870,7 +4970,7 @@
   (symbol (lib_id "power:GND") (at 97.79 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 75aec365-1bf9-4df1-b04c-c75fca514b2b)
-    (property "Reference" "#PWR015" (at 97.79 57.15 0)
+    (property "Reference" "#PWR018" (at 97.79 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 96.52 54.61 0)
@@ -4886,7 +4986,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR015") (unit 1)
+          (reference "#PWR018") (unit 1)
         )
       )
     )
@@ -4895,7 +4995,7 @@
   (symbol (lib_id "Device:R_Small") (at 124.46 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7669c56d-4a4f-4606-980d-5dab6eb589e7)
-    (property "Reference" "R3" (at 128.27 39.37 0)
+    (property "Reference" "R8" (at 128.27 39.37 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "5.1k" (at 129.54 41.91 0)
@@ -4912,7 +5012,33 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R3") (unit 1)
+          (reference "R8") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:C_Small") (at 273.05 85.09 0) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
+    (uuid 770f111f-f84b-4605-8733-efe9e1714730)
+    (property "Reference" "C21" (at 275.59 83.8263 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "1uf" (at 275.59 86.3663 0)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder" (at 273.05 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 273.05 85.09 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid 206f5778-ccf2-4aef-b608-8e7c91f90a46))
+    (pin "2" (uuid 780a242a-a697-4750-875e-6fb9c3c4f67d))
+    (instances
+      (project "luluu"
+        (path "/74934858-45e0-400e-9259-85b77d199d77"
+          (reference "C21") (unit 1)
         )
       )
     )
@@ -4921,7 +5047,7 @@
   (symbol (lib_id "power:GND") (at 72.39 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7ae3b7b6-b667-42f4-94be-41b7a93e9221)
-    (property "Reference" "#PWR07" (at 72.39 57.15 0)
+    (property "Reference" "#PWR013" (at 72.39 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 71.12 54.61 0)
@@ -4937,7 +5063,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR07") (unit 1)
+          (reference "#PWR013") (unit 1)
         )
       )
     )
@@ -4998,7 +5124,7 @@
   (symbol (lib_id "Device:C_Small") (at 119.38 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 7f2c8985-02a2-4b8a-92f1-245c59a348fc)
-    (property "Reference" "C8" (at 121.92 86.3663 0)
+    (property "Reference" "C13" (at 121.92 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 121.92 88.9063 0)
@@ -5015,7 +5141,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C8") (unit 1)
+          (reference "C13") (unit 1)
         )
       )
     )
@@ -5024,7 +5150,7 @@
   (symbol (lib_id "power:+5V") (at 170.18 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7f2ce5e6-2a8f-4131-9846-6b759a4fba67)
-    (property "Reference" "#PWR039" (at 170.18 24.13 0)
+    (property "Reference" "#PWR029" (at 170.18 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 167.64 16.51 0)
@@ -5040,7 +5166,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR039") (unit 1)
+          (reference "#PWR029") (unit 1)
         )
       )
     )
@@ -5049,7 +5175,7 @@
   (symbol (lib_id "power:GND") (at 170.18 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 81786f7f-87c0-4315-a0fc-9fcd45514aee)
-    (property "Reference" "#PWR040" (at 170.18 57.15 0)
+    (property "Reference" "#PWR030" (at 170.18 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 168.91 54.61 0)
@@ -5065,7 +5191,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR040") (unit 1)
+          (reference "#PWR030") (unit 1)
         )
       )
     )
@@ -5074,7 +5200,7 @@
   (symbol (lib_id "power:GND") (at 231.14 101.6 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 966bada4-2090-47bb-961b-4f658c93d2f3)
-    (property "Reference" "#PWR022" (at 231.14 107.95 0)
+    (property "Reference" "#PWR038" (at 231.14 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 229.87 105.41 0)
@@ -5090,7 +5216,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR038") (unit 1)
         )
       )
     )
@@ -5099,7 +5225,7 @@
   (symbol (lib_id "power:GND") (at 40.64 165.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 96b43a79-4597-457f-8356-9466435d0bee)
-    (property "Reference" "#PWR01" (at 40.64 171.45 0)
+    (property "Reference" "#PWR08" (at 40.64 171.45 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 39.37 168.91 0)
@@ -5115,7 +5241,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR01") (unit 1)
+          (reference "#PWR08") (unit 1)
         )
       )
     )
@@ -5150,7 +5276,7 @@
   (symbol (lib_id "power:GND") (at 132.08 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 984852f4-e644-4e63-9500-d47ef229a4a2)
-    (property "Reference" "#PWR014" (at 132.08 57.15 0)
+    (property "Reference" "#PWR025" (at 132.08 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 130.81 54.61 0)
@@ -5166,7 +5292,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR014") (unit 1)
+          (reference "#PWR025") (unit 1)
         )
       )
     )
@@ -5175,7 +5301,7 @@
   (symbol (lib_id "Device:C_Small") (at 97.79 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9dcd79c2-2474-496f-bb33-c1f9a1be2a94)
-    (property "Reference" "C4" (at 92.71 45.72 0)
+    (property "Reference" "C7" (at 92.71 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uf" (at 92.71 49.53 0)
@@ -5192,7 +5318,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C4") (unit 1)
+          (reference "C7") (unit 1)
         )
       )
     )
@@ -5201,7 +5327,7 @@
   (symbol (lib_id "power:+5V") (at 19.05 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e00fcc5-61d7-4413-884f-62fa6b1413b1)
-    (property "Reference" "#PWR02" (at 19.05 24.13 0)
+    (property "Reference" "#PWR01" (at 19.05 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 16.51 16.51 0)
@@ -5217,7 +5343,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR02") (unit 1)
+          (reference "#PWR01") (unit 1)
         )
       )
     )
@@ -5226,7 +5352,7 @@
   (symbol (lib_id "Connector_Generic:Conn_01x03") (at 208.28 153.67 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ab1438f8-8db4-496c-a4ff-6d3025b247a5)
-    (property "Reference" "J6" (at 205.74 146.05 0)
+    (property "Reference" "J5" (at 205.74 146.05 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "UART_PI_3WIRE" (at 205.74 148.59 0)
@@ -5244,7 +5370,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J6") (unit 1)
+          (reference "J5") (unit 1)
         )
       )
     )
@@ -5253,7 +5379,7 @@
   (symbol (lib_id "Connector:Micro_SD_Card") (at 207.01 35.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid abea2590-f7a3-4748-98ef-069ca90ea7dc)
-    (property "Reference" "J3" (at 207.645 16.51 0)
+    (property "Reference" "J4" (at 207.645 16.51 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "Micro_SD_Card" (at 207.645 19.05 0)
@@ -5277,7 +5403,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J3") (unit 1)
+          (reference "J4") (unit 1)
         )
       )
     )
@@ -5286,7 +5412,7 @@
   (symbol (lib_id "power:GND") (at 49.53 39.37 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ad545abb-702e-406c-b7e5-f98c3bdba8b4)
-    (property "Reference" "#PWR05" (at 43.18 39.37 0)
+    (property "Reference" "#PWR09" (at 43.18 39.37 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 46.99 39.37 90)
@@ -5302,7 +5428,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR05") (unit 1)
+          (reference "#PWR09") (unit 1)
         )
       )
     )
@@ -5311,7 +5437,7 @@
   (symbol (lib_id "power:+3V3") (at 194.31 113.03 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ae75cf0a-02a1-4542-8805-67384c7c3a85)
-    (property "Reference" "#PWR038" (at 194.31 116.84 0)
+    (property "Reference" "#PWR034" (at 194.31 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3V3" (at 198.12 109.22 0)
@@ -5327,7 +5453,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR038") (unit 1)
+          (reference "#PWR034") (unit 1)
         )
       )
     )
@@ -5336,7 +5462,7 @@
   (symbol (lib_id "power:GND") (at 34.29 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid b21bbee5-1979-4bb9-b1e7-f7f8e3be5691)
-    (property "Reference" "#PWR09" (at 34.29 57.15 0)
+    (property "Reference" "#PWR07" (at 34.29 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 33.02 54.61 0)
@@ -5352,7 +5478,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR09") (unit 1)
+          (reference "#PWR07") (unit 1)
         )
       )
     )
@@ -5361,7 +5487,7 @@
   (symbol (lib_id "Device:C_Small") (at 24.13 106.68 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b39a3872-ca51-466c-9de2-c81377440f77)
-    (property "Reference" "C7" (at 26.67 105.4163 0)
+    (property "Reference" "C1" (at 26.67 105.4163 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 26.67 107.9563 0)
@@ -5378,7 +5504,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C7") (unit 1)
+          (reference "C1") (unit 1)
         )
       )
     )
@@ -5387,7 +5513,7 @@
   (symbol (lib_id "Connector:USB_C_Receptacle_USB2.0") (at 251.46 43.18 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b3a09f40-b59c-4234-88eb-0bd617a63033)
-    (property "Reference" "J1" (at 251.46 20.32 0)
+    (property "Reference" "J6" (at 251.46 20.32 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "USB_C_Receptacle_USB2.0" (at 251.46 22.86 0)
@@ -5419,7 +5545,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "J1") (unit 1)
+          (reference "J6") (unit 1)
         )
       )
     )
@@ -5428,7 +5554,7 @@
   (symbol (lib_id "power:GND") (at 228.6 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ba599b59-10b3-4516-8e0a-9af9f4ca0d0f)
-    (property "Reference" "#PWR041" (at 228.6 57.15 0)
+    (property "Reference" "#PWR037" (at 228.6 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 227.33 54.61 0)
@@ -5444,7 +5570,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR041") (unit 1)
+          (reference "#PWR037") (unit 1)
         )
       )
     )
@@ -5453,7 +5579,7 @@
   (symbol (lib_id "power:GND") (at 180.34 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ba5a4af7-effb-43aa-91bc-768cfa291185)
-    (property "Reference" "#PWR032" (at 180.34 100.33 0)
+    (property "Reference" "#PWR031" (at 180.34 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 179.07 97.79 0)
@@ -5469,7 +5595,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR032") (unit 1)
+          (reference "#PWR031") (unit 1)
         )
       )
     )
@@ -5478,7 +5604,7 @@
   (symbol (lib_id "power:+1V1") (at 106.68 67.31 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bc49d623-cfb4-4361-b2dc-6407625db580)
-    (property "Reference" "#PWR034" (at 106.68 71.12 0)
+    (property "Reference" "#PWR020" (at 106.68 71.12 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+1V1" (at 107.95 63.5 0)
@@ -5490,11 +5616,11 @@
     (property "Datasheet" "" (at 106.68 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 5a53b237-c640-4293-9429-b2c0e0dfa716))
+    (pin "1" (uuid 2c618431-a7a3-4815-a66c-4f8552778282))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR020") (unit 1)
         )
       )
     )
@@ -5503,7 +5629,7 @@
   (symbol (lib_id "power:GND") (at 189.23 113.03 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bd87c54e-bea5-4afe-bc8f-1e77c7f8210d)
-    (property "Reference" "#PWR037" (at 189.23 106.68 0)
+    (property "Reference" "#PWR032" (at 189.23 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 190.5 109.22 0)
@@ -5519,7 +5645,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR037") (unit 1)
+          (reference "#PWR032") (unit 1)
         )
       )
     )
@@ -5528,7 +5654,7 @@
   (symbol (lib_id "Device:C_Small") (at 170.18 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bf4c066b-4e3f-4dff-93d3-60fdcacc6b2d)
-    (property "Reference" "C13" (at 172.72 86.3663 0)
+    (property "Reference" "C18" (at 172.72 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 172.72 88.9063 0)
@@ -5545,7 +5671,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C13") (unit 1)
+          (reference "C18") (unit 1)
         )
       )
     )
@@ -5579,7 +5705,7 @@
   (symbol (lib_id "Device:C_Small") (at 160.02 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c49329d4-9f5f-4d56-9887-61a3aaa63739)
-    (property "Reference" "C12" (at 162.56 86.3663 0)
+    (property "Reference" "C17" (at 162.56 86.3663 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nf" (at 162.56 88.9063 0)
@@ -5596,7 +5722,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C12") (unit 1)
+          (reference "C17") (unit 1)
         )
       )
     )
@@ -5632,7 +5758,7 @@
   (symbol (lib_id "power:GND") (at 19.05 133.35 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c8132407-2748-41b4-a7fb-a075af447a79)
-    (property "Reference" "#PWR029" (at 19.05 139.7 0)
+    (property "Reference" "#PWR04" (at 19.05 139.7 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 17.78 137.16 0)
@@ -5648,7 +5774,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR029") (unit 1)
+          (reference "#PWR04") (unit 1)
         )
       )
     )
@@ -5685,7 +5811,7 @@
   (symbol (lib_id "power:GND") (at 24.13 110.49 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cbae04f0-b6e4-4637-a479-9a05416b5464)
-    (property "Reference" "#PWR030" (at 24.13 116.84 0)
+    (property "Reference" "#PWR05" (at 24.13 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 22.86 114.3 0)
@@ -5701,7 +5827,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR030") (unit 1)
+          (reference "#PWR05") (unit 1)
         )
       )
     )
@@ -5710,7 +5836,7 @@
   (symbol (lib_id "luluu:MCP73831-2-OT") (at 113.03 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ccba1a33-5983-4eed-9f25-5dd832bc8f0f)
-    (property "Reference" "U2" (at 113.03 30.48 0)
+    (property "Reference" "U4" (at 113.03 30.48 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "MCP73831-2-OT" (at 105.41 45.72 0)
@@ -5730,7 +5856,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "U2") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -5739,7 +5865,7 @@
   (symbol (lib_id "Device:R_Small") (at 76.2 97.79 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d201d750-ed71-4918-9ee1-3f4cf84ef342)
-    (property "Reference" "R9" (at 80.01 96.52 0)
+    (property "Reference" "R7" (at 80.01 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10k" (at 81.28 99.06 0)
@@ -5756,7 +5882,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R9") (unit 1)
+          (reference "R7") (unit 1)
         )
       )
     )
@@ -5788,26 +5914,26 @@
     )
   )
 
-  (symbol (lib_id "power:+3V3") (at 254 81.28 0) (unit 1)
+  (symbol (lib_id "power:+3V3") (at 254 80.01 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d701d8fa-05ad-4fe8-97d7-bc27f0744bbd)
-    (property "Reference" "#PWR023" (at 254 85.09 0)
+    (property "Reference" "#PWR043" (at 254 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "+3V3" (at 257.81 77.47 0)
+    (property "Value" "+3V3" (at 257.81 76.2 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 254 81.28 0)
+    (property "Footprint" "" (at 254 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 254 81.28 0)
+    (property "Datasheet" "" (at 254 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 0d68b140-afeb-4861-b643-f2fedb88daa5))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR043") (unit 1)
         )
       )
     )
@@ -5816,7 +5942,7 @@
   (symbol (lib_id "luluu:RT9080-33XJ5") (at 58.42 39.37 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d76bd449-263a-47fa-bed1-d0a797a7db6b)
-    (property "Reference" "U3" (at 58.42 33.02 0)
+    (property "Reference" "U2" (at 58.42 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "RT9080-33GJ5" (at 58.42 45.72 0)
@@ -5836,33 +5962,33 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "U3") (unit 1)
+          (reference "U2") (unit 1)
         )
       )
     )
   )
 
-  (symbol (lib_id "Device:C_Small") (at 130.81 72.39 0) (mirror y) (unit 1)
+  (symbol (lib_id "Device:C_Small") (at 129.54 72.39 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d90e1536-685d-48c3-a867-2b2e6ac0e03c)
-    (property "Reference" "C15" (at 137.16 71.12 0)
+    (property "Reference" "C11" (at 135.89 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "100nf" (at 138.43 73.66 0)
+    (property "Value" "100nf" (at 137.16 73.66 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder" (at 130.81 72.39 0)
+    (property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder" (at 129.54 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "~" (at 130.81 72.39 0)
+    (property "Datasheet" "~" (at 129.54 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4748e9f0-a5e0-4088-97d0-527160c2f41d))
-    (pin "2" (uuid cb86a3c2-c085-4fa1-b95c-8bfea4b183d1))
+    (pin "1" (uuid 3cb1f07c-a498-49b4-8e02-86b7b03fcb8a))
+    (pin "2" (uuid 48b8db47-ff0f-428d-b692-ff49488e8d39))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C15") (unit 1)
+          (reference "C11") (unit 1)
         )
       )
     )
@@ -5871,7 +5997,7 @@
   (symbol (lib_id "power:GND") (at 190.5 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid daf75f59-c875-49ff-bbb5-a6e3d907f09c)
-    (property "Reference" "#PWR044" (at 190.5 161.29 0)
+    (property "Reference" "#PWR033" (at 190.5 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 189.23 158.75 0)
@@ -5887,7 +6013,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR044") (unit 1)
+          (reference "#PWR033") (unit 1)
         )
       )
     )
@@ -5896,7 +6022,7 @@
   (symbol (lib_id "power:GND") (at 146.05 50.8 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e0277f22-184f-4868-a50a-1e698276ca19)
-    (property "Reference" "#PWR043" (at 146.05 57.15 0)
+    (property "Reference" "#PWR027" (at 146.05 57.15 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 144.78 54.61 0)
@@ -5912,7 +6038,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR043") (unit 1)
+          (reference "#PWR027") (unit 1)
         )
       )
     )
@@ -5921,7 +6047,7 @@
   (symbol (lib_id "Device:C_Small") (at 110.49 72.39 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e2daa61d-7037-4e5d-8e8c-ec3567c20fec)
-    (property "Reference" "C17" (at 116.84 71.12 0)
+    (property "Reference" "C9" (at 116.84 71.12 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "1uf" (at 113.03 73.66 0)
@@ -5933,12 +6059,12 @@
     (property "Datasheet" "~" (at 110.49 72.39 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 3bd2bca1-f48b-48eb-bdc7-03d98014b275))
-    (pin "2" (uuid 5d9f7c7f-8fe6-4bbd-92e0-561bfe79f244))
+    (pin "1" (uuid 74de3d57-1ec4-465e-94d1-779e84d80c81))
+    (pin "2" (uuid 9f8fbb99-c4ed-4d02-adcf-8f21ff94fbc9))
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C17") (unit 1)
+          (reference "C9") (unit 1)
         )
       )
     )
@@ -5947,7 +6073,7 @@
   (symbol (lib_id "Device:R_Small") (at 270.51 33.02 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e377fc23-18da-4b88-a5f7-0c3c1de61297)
-    (property "Reference" "R4" (at 266.7 30.48 90)
+    (property "Reference" "R10" (at 266.7 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "5.1k" (at 270.51 30.48 90)
@@ -5964,7 +6090,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R4") (unit 1)
+          (reference "R10") (unit 1)
         )
       )
     )
@@ -5973,7 +6099,7 @@
   (symbol (lib_id "power:PWR_FLAG") (at 101.6 34.29 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e3ac1f13-a0a2-4b6f-b536-45e8d53db965)
-    (property "Reference" "#FLG01" (at 101.6 32.385 0)
+    (property "Reference" "#FLG02" (at 101.6 32.385 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "PWR_FLAG" (at 102.87 30.48 0)
@@ -5989,7 +6115,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#FLG01") (unit 1)
+          (reference "#FLG02") (unit 1)
         )
       )
     )
@@ -5998,7 +6124,7 @@
   (symbol (lib_id "Device:R_Small") (at 41.91 116.84 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e3c5b21b-5da8-48ce-845d-39753fb68bf9)
-    (property "Reference" "R8" (at 45.72 115.57 0)
+    (property "Reference" "R3" (at 45.72 115.57 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "10k" (at 46.99 118.11 0)
@@ -6015,7 +6141,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R8") (unit 1)
+          (reference "R3") (unit 1)
         )
       )
     )
@@ -6024,7 +6150,7 @@
   (symbol (lib_id "luluu:APX803S-26SA") (at 224.79 113.03 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e46d7054-6476-4d6a-a2f8-78d30b59be14)
-    (property "Reference" "U4" (at 224.155 102.87 0)
+    (property "Reference" "U5" (at 224.155 102.87 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "APX803" (at 224.155 105.41 0)
@@ -6042,7 +6168,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "U4") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )
@@ -6083,7 +6209,7 @@
   (symbol (lib_id "power:+BATT") (at 132.08 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e720fe16-659e-42a3-8233-c5c93dafa0de)
-    (property "Reference" "#PWR013" (at 132.08 24.13 0)
+    (property "Reference" "#PWR024" (at 132.08 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+BATT" (at 129.54 16.51 0)
@@ -6099,7 +6225,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR013") (unit 1)
+          (reference "#PWR024") (unit 1)
         )
       )
     )
@@ -6108,7 +6234,7 @@
   (symbol (lib_id "Device:C_Small") (at 72.39 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid eaa2f156-8c0b-4ff7-9249-6fa8cbfaec25)
-    (property "Reference" "C2" (at 74.93 45.7263 0)
+    (property "Reference" "C5" (at 74.93 45.7263 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uf" (at 74.93 48.2663 0)
@@ -6125,7 +6251,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C2") (unit 1)
+          (reference "C5") (unit 1)
         )
       )
     )
@@ -6134,7 +6260,7 @@
   (symbol (lib_id "power:+BATT") (at 146.05 20.32 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ed0d48f0-f13f-479a-9658-467f5fcbd1a6)
-    (property "Reference" "#PWR042" (at 146.05 24.13 0)
+    (property "Reference" "#PWR026" (at 146.05 24.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+BATT" (at 143.51 16.51 0)
@@ -6150,7 +6276,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR042") (unit 1)
+          (reference "#PWR026") (unit 1)
         )
       )
     )
@@ -6159,7 +6285,7 @@
   (symbol (lib_id "Device:R_Small") (at 67.31 158.75 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ef3c294d-2cb0-4ba4-a96b-0791191d0954)
-    (property "Reference" "R10" (at 66.04 156.21 90)
+    (property "Reference" "R4" (at 66.04 156.21 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "1k" (at 69.85 156.21 90)
@@ -6176,7 +6302,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "R10") (unit 1)
+          (reference "R4") (unit 1)
         )
       )
     )
@@ -6185,7 +6311,7 @@
   (symbol (lib_id "power:GND") (at 163.83 154.94 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f3eb2c03-a8ec-44d1-b8df-424a808c3ab9)
-    (property "Reference" "#PWR045" (at 163.83 161.29 0)
+    (property "Reference" "#PWR028" (at 163.83 161.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 162.56 158.75 0)
@@ -6201,7 +6327,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR028") (unit 1)
         )
       )
     )
@@ -6210,7 +6336,7 @@
   (symbol (lib_id "power:GND") (at 275.59 33.02 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f81754f0-2732-4004-872b-df455efdedb3)
-    (property "Reference" "#PWR017" (at 281.94 33.02 0)
+    (property "Reference" "#PWR045" (at 281.94 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 279.4 34.29 0)
@@ -6226,7 +6352,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "#PWR017") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
       )
     )
@@ -6235,7 +6361,7 @@
   (symbol (lib_id "Device:C_Small") (at 132.08 46.99 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fa137f1d-2459-4d2a-a429-3bba45a2c1f1)
-    (property "Reference" "C5" (at 127 45.72 0)
+    (property "Reference" "C8" (at 127 45.72 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uf" (at 125.73 48.26 0)
@@ -6252,7 +6378,7 @@
     (instances
       (project "luluu"
         (path "/74934858-45e0-400e-9259-85b77d199d77"
-          (reference "C5") (unit 1)
+          (reference "C8") (unit 1)
         )
       )
     )
