@@ -9,6 +9,10 @@
       (effects (font (size 1 1) (thickness 0.15)))
     (tstamp 17b32fff-5700-4605-bf08-ff0c1d32a9f0)
   )
+  (fp_text user "https://datasheet.lcsc.com/lcsc/2010201934_JUSHUO-AFC04-S24ECA-00_C883644.pdf" (at 0.1 5.9) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 850b560f-8488-412a-9bd9-84035b2a9015)
+  )
   (fp_line (start -8.86 2) (end -6 2)
     (stroke (width 0.12) (type default)) (layer "F.SilkS") (tstamp 9580e9b8-94ae-4764-80bb-bda384a713f9))
   (fp_line (start -8.86 4.3) (end -8.86 2)
