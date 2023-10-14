@@ -5414,7 +5414,7 @@
     (property "Value" "SW_POWER" (at 144.78 30.48 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Button_Switch_SMD:SW_SPDT_PCM12" (at 142.24 31.75 0)
+    (property "Footprint" "luluu:SW_SPDT_PCM12" (at 142.24 31.75 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 142.24 31.75 0)
