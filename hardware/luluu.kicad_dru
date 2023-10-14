@@ -29,11 +29,6 @@
 	(constraint text_height (min 1mm))
 	(layer "?.Silkscreen"))
 
-(rule "Pad to Silkscreen"
-	(constraint silk_clearance (min 0.15mm))
-	(layer outer)
-	(condition "A.Type == 'pad' && (B.Type == 'text' || B.Type == 'graphic')"))
-
 # edge clearance
 (rule "Trace to Outline"
 	(constraint edge_clearance (min 0.2mm))
