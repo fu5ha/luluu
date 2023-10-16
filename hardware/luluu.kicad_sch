@@ -4302,7 +4302,7 @@
   )
 
   (symbol (lib_id "Connector_Generic:Conn_01x02") (at 148.59 38.1 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 322e2dfa-2b03-4411-829e-03975b1c08d4)
     (property "Reference" "J1" (at 147.32 35.56 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4523,7 +4523,7 @@
   )
 
   (symbol (lib_id "luluu:STEMMA_QT_I2C") (at 191.77 118.11 0) (mirror y) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 4173e76e-0030-47d6-afff-b6d90ccf2078)
     (property "Reference" "J3" (at 198.12 116.84 0)
       (effects (font (size 1.27 1.27)))
@@ -4646,7 +4646,7 @@
   )
 
   (symbol (lib_id "Connector_Generic:Conn_01x03") (at 195.58 151.13 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 4793623b-2b8a-4802-9161-13676c6d1f3b)
     (property "Reference" "J2" (at 198.12 148.59 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -4962,7 +4962,7 @@
   )
 
   (symbol (lib_id "luluu:DISP_LCD_ST7789_1.3IN") (at 262.89 127 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 61d16ccf-50a7-4319-b228-3ec674b13411)
     (property "Reference" "J7" (at 257.81 93.98 0)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5406,7 +5406,7 @@
   )
 
   (symbol (lib_id "Switch:SW_SPST") (at 142.24 31.75 270) (mirror x) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 80d9f1f0-84ce-449b-8704-cecec2e2a8fc)
     (property "Reference" "SW3" (at 144.78 33.02 90)
       (effects (font (size 1.27 1.27)) (justify left))
@@ -5634,7 +5634,7 @@
   )
 
   (symbol (lib_id "Connector_Generic:Conn_01x03") (at 195.58 139.7 0) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid ab1438f8-8db4-496c-a4ff-6d3025b247a5)
     (property "Reference" "J5" (at 198.12 137.16 0)
       (effects (font (size 1.27 1.27)) (justify left))
