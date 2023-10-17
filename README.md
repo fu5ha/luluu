@@ -1,4 +1,4 @@
-# LuLuu
+# LuLuu!
 
 A cute and smart arm-warmer sleeve with a 1.3" full color TFT display built into the back of the
 hand ^_^
@@ -17,14 +17,27 @@ UART communication.
 The hardware design files all live in the [`hardware/`](hardware/) folder. See the [`README`](hardware/README.md) in
 that folder for more.
 
-## Software
+## Firmware
 
-TODO. Using Rust embedded crates:
+The firmware that the LuLuu runs is contained in the [`firmware/`](firmware/) folder.
+It is written in Rust using some of the amazing Rust embedded tooling.
+See the [`README`](firmware/README.md) in that folder for more.
 
-- `embedded-hal` (`rp2040-hal`)
-- `embedded-sdmmc`
-- `embedded-graphics`
-- `tinybmp`/`tinygif`
-- `display-interface`
-- `mipidsi`
+### Installing
+
+You can either install the firmware using the pre-built binary firmware or you can
+build it yourself.
+
+#### Pre-built firmware
+
+You can install a pre-built firmware easily via USB by connecting the LuLuu PCB to
+your computer via USB, holding the `USBBOOT` button and then pressing the `RESET`
+button. This will put the LuLuu into "USB Bootloader mode," causing a "USB storage" 
+device to appear on your computer, into which you can drop the compiled `luluu.uf2`
+(TODO: link built firmware).
+
+#### Building yourself
+
+To build yourself, see the [`README`](/firmware/README.md) in the
+[`firmware/`](firmware/) folder.
 
