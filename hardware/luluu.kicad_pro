@@ -55,7 +55,19 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "hole_clearance|179732500|104850000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|1bfd4c9e-9ffc-4524-8e0f-153e438fadca",
+        "hole_clearance|179732500|104850000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|246ab4a6-de8a-4a87-87f6-c9ec582148f7",
+        "hole_clearance|179732500|105050000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|197e2c5e-c3f0-41ac-9ea7-595189de12b5",
+        "hole_clearance|179732500|105050000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|6d5f2a34-9d0c-4512-9989-338bb6377427",
+        "hole_clearance|179732500|99250000|c4521d3c-34d6-4066-be46-3d0b374b6813|6cfa3830-e014-4d5d-a0c7-bbfdfaac2cb2",
+        "hole_clearance|179732500|99250000|c4521d3c-34d6-4066-be46-3d0b374b6813|b684c113-6bb9-4fa3-9466-1349c5221c10",
+        "hole_clearance|179732500|99450000|c4521d3c-34d6-4066-be46-3d0b374b6813|29e286a1-0ffe-47f1-b513-9e1e5656a4da",
+        "hole_clearance|179732500|99450000|c4521d3c-34d6-4066-be46-3d0b374b6813|e575f2b4-d82a-458e-8b60-7114176733f1",
+        "unconnected_items|179712500|106470000|37362f46-7738-4819-93fb-6980ca1a2a9f|2b6bd232-179a-4ae2-89cf-1bf303738a48",
+        "unconnected_items|183912500|106470000|2b6bd232-179a-4ae2-89cf-1bf303738a48|7ba071a9-11d7-4499-aa6c-f0898112ff92",
+        "unconnected_items|183912500|97830000|7ba071a9-11d7-4499-aa6c-f0898112ff92|6433d4db-7759-4c27-8359-153fbd08acf7"
+      ],
       "meta": {
         "version": 2
       },
@@ -499,7 +511,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "/home/gray/Documents/",
+    "plot_directory": "./",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
