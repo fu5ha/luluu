@@ -4,6 +4,11 @@ The main part of this folder is the [KiCad](https://www.kicad.org/) project for 
 There are production files for PCB production and assembly from JLCPCB in the `production/` folder. There is also a
 small 3d printed "front panel" part with exported STL files in the `FrontPanel/` folder.
 
+## Schematic
+
+An exported PDF schematic of the latest revision is available at
+[`luluu_rev1_schematic.pdf`](./luluu_rev1_schematic.pdf)
+
 TODO: document BOM, assembly process, etc more
 
 ## Front Panel
