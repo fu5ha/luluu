@@ -2,6 +2,10 @@
 
 LuLuu's software stack is based on the Rust embedded and rp2040 tooling. 
 
+The firmware is split into a couple of crates housed in the root Cargo workspace.
+We provide our own "board support crate", [`luluu-bsp`](./luluu-bsp), and leverage
+that crate in the actual firmware, contained in the [`luluu`](./luluu) folder.
+
 TODO. Using Rust embedded crates:
 
 - `embedded-hal` (`rp2040-hal`)
@@ -64,7 +68,7 @@ device.
 cargo run --release	
 ```
 
-### Installing with `probe-rs`
+### Installing with `cargo embed`
 
 This requires a [`probe-rs`-compatible probe](https://probe.rs/docs/getting-started/probe-setup/).
 For example, a [RaspberryPi Debug Probe](https://www.raspberrypi.com/products/debug-probe/)
@@ -89,12 +93,12 @@ your probe.
 
 See [the `probe-rs` repo for reference](https://github.com/probe-rs/probe-rs/blob/c0610e98008cbb34d0dc056fcddff0f2d4f50ad5/probe-rs/src/bin/probe-rs/cmd/cargo_embed/config/default.toml).
 
-4. Run `cargo run --release` to execute the `probe-rs` session
+4. Run `cargo embed` to execute the `probe-rs` session
 
 This compile, flash the device through the probe, and start running a debug session
 according to the `Embed.toml`.
 
 ```
-cargo run --release
+cargo embed
 ```
 

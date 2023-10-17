@@ -17,11 +17,11 @@ UART communication.
 The hardware design files all live in the [`hardware/`](hardware/) folder. See the [`README`](hardware/README.md) in
 that folder for more.
 
-## Firmware
+## Software
 
-The firmware that the LuLuu runs is contained in the [`firmware/`](firmware/) folder.
+The firmware that the LuLuu runs is contained in the [`software/`](software/) folder.
 It is written in Rust using some of the amazing Rust embedded tooling.
-See the [`README`](firmware/README.md) in that folder for more.
+See the [`README`](software/README.md) in that folder for more.
 
 ### Installing
 
@@ -38,6 +38,14 @@ device to appear on your computer, into which you can drop the compiled `luluu.u
 
 #### Building yourself
 
-To build yourself, see the [`README`](/firmware/README.md) in the
-[`firmware/`](firmware/) folder.
+To build yourself, see the [`README`](software/README.md) in the
+[`software/`](software/) folder.
+
+## Licenses
+
+Hardware is provided under the CERN Open Hardware License 2.0 Permissive variant.
+
+Software is provided under MIT or Apache-2.0 at your choice.
+
+License texts available in the [`licences/`](licenses/) folder.
 
