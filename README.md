@@ -3,8 +3,8 @@
 A cute and smart arm-warmer sleeve with a 1.3" full color TFT display built into the back of the
 hand ^_^
 
-![PCB drawing][img/board_drawing.png]
-![PCB render][img/board_render.png]
+![PCB drawing](img/board_drawing.png)
+![PCB render](img/board_render.png)
 
 ## Hardware
 
