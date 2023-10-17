@@ -1,8 +1,10 @@
 # Hardware
 
-The main part of this folder is the KiCad project for the main PCB. There are production files for PCB production
-and assembly from JLCPCB in the `production/` folder. There is also a small 3d printed "front panel" part with
-exported STL files in the `FrontPanel/` folder.
+The main part of this folder is the [KiCad](https://www.kicad.org/) project for the main PCB. Open it with KiCad v7+.
+There are production files for PCB production and assembly from JLCPCB in the `production/` folder. There is also a
+small 3d printed "front panel" part with exported STL files in the `FrontPanel/` folder.
+
+TODO: document BOM, assembly process, etc more
 
 ## Front Panel
 
