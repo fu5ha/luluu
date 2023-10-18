@@ -8,6 +8,8 @@ license = "MIT OR Apache-2.0"
 cortex-m-rt = { workspace = true, optional = true }
 rp2040-boot2 = { workspace = true, optional = true }
 rp2040-hal = { workspace = true }
+embedded-graphics = { workspace = true }
+embedded-sdmmc = { workspace = true }
 
 [features]
 # This is the set of features we enable by default

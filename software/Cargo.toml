@@ -23,6 +23,11 @@ rp2040-hal = "0.9"
 defmt = "0.3"
 defmt-rtt = "0.4"
 panic-probe = { version = "0.3" }
+embedded-graphics = { version = "0.8.1" }
+embedded-sdmmc = { version = "0.5" }
+
+[patch.crates-io]
+rp2040-hal = { path = "../../Code/rp-hal/rp2040-hal" }
 
 # cargo build/run
 [profile.dev]

@@ -1,15 +1,15 @@
-//! Blinks the LED on a Pico board
-//!
-//! This will blink an LED attached to GP25, which is the pin the Pico uses for the on-board LED.
 #![no_std]
 #![no_main]
 
+use bsp::hal::i2c::peripheral;
+use display_interface_spi::SPIInterface;
 use luluu_bsp as bsp;
 
-use bsp::entry;
+use bsp::hal as hal;
+use bsp::{entry, hal::Spi, SpiPinLayout, DispBacklightToggle, Framebuffer};
 use defmt::*;
 use defmt_rtt as _;
-use embedded_hal::digital::v2::OutputPin;
+use embedded_hal::{digital::v2::OutputPin, spi::MODE_0};
 use panic_probe as _;
 
 use bsp::hal::{
@@ -19,50 +19,67 @@ use bsp::hal::{
     watchdog::Watchdog,
 };
 
+use fugit::RateExtU32;
+
 #[entry]
 fn main() -> ! {
     info!("Program start");
-    let mut pac = pac::Peripherals::take().unwrap();
+    let mut peripherals = pac::Peripherals::take().unwrap();
     let core = pac::CorePeripherals::take().unwrap();
-    let mut watchdog = Watchdog::new(pac.WATCHDOG);
-    let sio = Sio::new(pac.SIO);
+    let mut watchdog = Watchdog::new(peripherals.WATCHDOG);
+    let sio = Sio::new(peripherals.SIO);
 
     let clocks = init_clocks_and_plls(
         bsp::XOSC_CRYSTAL_FREQ,
-        pac.XOSC,
-        pac.CLOCKS,
-        pac.PLL_SYS,
-        pac.PLL_USB,
-        &mut pac.RESETS,
+        peripherals.XOSC,
+        peripherals.CLOCKS,
+        peripherals.PLL_SYS,
+        peripherals.PLL_USB,
+        &mut peripherals.RESETS,
         &mut watchdog,
     )
     .ok()
     .unwrap();
 
-    let mut delay = cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
+    let mut timer = hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
 
     let pins = bsp::Pins::new(
-        pac.IO_BANK0,
-        pac.PADS_BANK0,
+        peripherals.IO_BANK0,
+        peripherals.PADS_BANK0,
         sio.gpio_bank0,
-        &mut pac.RESETS,
+        &mut peripherals.RESETS,
     );
 
-    // This is the correct pin on the Raspberry Pico board. On other boards, even if they have an
-    // on-board LED, it might need to be changed.
-    // Notably, on the Pico W, the LED is not connected to any of the RP2040 GPIOs but to the cyw43 module instead. If you have
-    // a Pico W and want to toggle a LED with a simple GPIO output pin, you can connect an external
-    // LED to one of the GPIO pins, and reference that pin here.
-    let mut led_pin = pins.disp_backlight.into_push_pull_output();
+    let mut backlight_pin = pins.disp_backlight;
+    backlight_pin.set_high();
+
+    let card_cs = pins.card_cs;
+
+    let disp_cs = pins.disp_cs_main;
+    let disp_data_cmd = pins.disp_data_cmd;
+
+
+    let spi_pin_layout: SpiPinLayout = (pins.spi_mosi, pins.spi_miso, pins.spi_clock);
+    let spi = Spi::<_, _, _, 8>::new(peripherals.SPI1, spi_pin_layout);
+
+    // start at low baud rate for initializing card
+    let spi = spi.init(&mut peripherals.RESETS, 125.MHz(), 400.kHz(), MODE_0);
+
+    let mut fb = bsp::Framebuffer::new();
+
+    // TODO: add bootup/load animation
+
+    // preprocess main gif
+    let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, delay);
+    let mut volume_mgr = embedded_sdmmc::VolumeManager::new(sdcard, bsp::DummyTimesource);
+
+
 
     loop {
-        info!("on!");
-        led_pin.set_high().unwrap();
-        delay.delay_ms(500);
-        info!("off!");
-        led_pin.set_low().unwrap();
-        delay.delay_ms(500);
+        let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, delay);
+
+        let display_interface = SPIInterface::new(spi, disp_data_cmd, disp_cs_main);
+
     }
 }
 
-// End of file
