@@ -55,7 +55,7 @@ fn main() -> ! {
 
     let card_cs = pins.card_cs;
 
-    let disp_cs = pins.disp_cs_main;
+    let disp_cs_main = pins.disp_cs_main;
     let disp_data_cmd = pins.disp_data_cmd;
 
 
@@ -70,13 +70,13 @@ fn main() -> ! {
     // TODO: add bootup/load animation
 
     // preprocess main gif
-    let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, delay);
+    let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, timer.clone());
     let mut volume_mgr = embedded_sdmmc::VolumeManager::new(sdcard, bsp::DummyTimesource);
 
 
 
     loop {
-        let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, delay);
+        let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, timer.clone());
 
         let display_interface = SPIInterface::new(spi, disp_data_cmd, disp_cs_main);
 
