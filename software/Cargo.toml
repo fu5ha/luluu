@@ -4,6 +4,15 @@ members = [
   "luluu-bsp",
   "luluu",
 ]
+exclude = [
+  "vendored/embedded-sdmmc-rs",
+  "vendored/display-interface",
+  "vendored/display-interface/parallel-gpio",
+  "vendored/display-interface/i2c",
+  "vendored/display-interface/spi",
+  "vendored/rp-hal/rp2040-hal",
+  "vendored/rp-hal/rp2040-hal-macros",
+]
 default-members = ["luluu"]
 
 [workspace.package]
@@ -16,18 +25,24 @@ repository = "https://github.com/fu5ha/luluu"
 [workspace.dependencies]
 cortex-m = "0.7"
 cortex-m-rt = "0.7"
-embedded-hal = { version = "0.2.5", features = ["unproven"] }
+embedded-hal = { version = "1.0.0-rc.1" }
+embedded-hal-bus = { version = "0.1.0-rc.1" }
 rp2040-boot2 = "0.3"
-rp2040-hal = "0.9"
+rp2040-hal = { version = "0.9", features = ["eh1_0_alpha"] }
 
 defmt = "0.3"
 defmt-rtt = "0.4"
 panic-probe = { version = "0.3" }
 embedded-graphics = { version = "0.8.1" }
-embedded-sdmmc = { version = "0.5" }
+embedded-sdmmc = { version = "0.6" }
+display-interface = { version = "0.5.0-alpha.1" }
+display-interface-spi = { version = "0.5.0-alpha.1" }
 
 [patch.crates-io]
-rp2040-hal = { path = "../../Code/rp-hal/rp2040-hal" }
+rp2040-hal = { path = "vendored/rp-hal/rp2040-hal" }
+embedded-sdmmc = { path = "vendored/embedded-sdmmc-rs" }
+display-interface = { path = "vendored/display-interface/" }
+display-interface-spi = { path = "vendored/display-interface/spi" }
 
 # cargo build/run
 [profile.dev]

@@ -1,15 +1,20 @@
 #![no_std]
 #![no_main]
 
+use core::cell::RefCell;
+
 use bsp::hal::i2c::peripheral;
 use display_interface_spi::SPIInterface;
+use embedded_hal_bus::spi::RefCellDevice;
+use embedded_sdmmc::{VolumeIdx, ShortFileName};
 use luluu_bsp as bsp;
 
 use bsp::hal as hal;
 use bsp::{entry, hal::Spi, SpiPinLayout, DispBacklightToggle, Framebuffer};
 use defmt::*;
 use defmt_rtt as _;
-use embedded_hal::{digital::v2::OutputPin, spi::MODE_0};
+use embedded_hal::{digital::OutputPin, spi::MODE_0};
+use embedded_sdmmc::sdcard::DummyCsPin;
 use panic_probe as _;
 
 use bsp::hal::{
@@ -41,7 +46,7 @@ fn main() -> ! {
     .ok()
     .unwrap();
 
-    let mut timer = hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
+    let timer = hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
 
     let pins = bsp::Pins::new(
         peripherals.IO_BANK0,
@@ -51,7 +56,7 @@ fn main() -> ! {
     );
 
     let mut backlight_pin = pins.disp_backlight;
-    backlight_pin.set_high();
+    backlight_pin.set_low().unwrap();
 
     let card_cs = pins.card_cs;
 
@@ -60,25 +65,36 @@ fn main() -> ! {
 
 
     let spi_pin_layout: SpiPinLayout = (pins.spi_mosi, pins.spi_miso, pins.spi_clock);
-    let spi = Spi::<_, _, _, 8>::new(peripherals.SPI1, spi_pin_layout);
+    let spi = Spi::new(peripherals.SPI1, spi_pin_layout);
 
     // start at low baud rate for initializing card
     let spi = spi.init(&mut peripherals.RESETS, 125.MHz(), 400.kHz(), MODE_0);
 
-    let mut fb = bsp::Framebuffer::new();
+    let shared_spi = RefCell::new(spi);
 
-    // TODO: add bootup/load animation
+    let sdcard_spi = RefCellDevice::new(&shared_spi, DummyCsPin, timer.clone());
 
     // preprocess main gif
-    let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, timer.clone());
+    let sdcard = embedded_sdmmc::SdCard::new(sdcard_spi, card_cs, timer.clone());
+    info!("Detected sdcard size: {}", sdcard.num_bytes().unwrap());
     let mut volume_mgr = embedded_sdmmc::VolumeManager::new(sdcard, bsp::DummyTimesource);
+    let mut volume0 = volume_mgr.open_volume(VolumeIdx(0)).unwrap();
+    let mut root_dir = volume0.open_root_dir().unwrap();
+    let mut filenames: heapless::Vec<ShortFileName, 4> = None;
+    root_dir.iterate_dir(|dir_entry| {
+        if dir_entry.attributes.is_hidden() || dir_entry.attributes.is_system() {
+            return;
+        }
+        if dir_entry.name.extension() == b"GIF" {
+            dir_entry.name
+        }
+    });
 
+    let display_spi = RefCellDevice::new(&shared_spi, disp_cs_main, timer.clone());
+    // let mut _fb = bsp::Framebuffer::new();
 
-
+    let display_interface = SPIInterface::new(display_spi, disp_data_cmd);
     loop {
-        let sdcard = embedded_sdmmc::SdCard::new(spi, card_cs, timer.clone());
-
-        let display_interface = SPIInterface::new(spi, disp_data_cmd, disp_cs_main);
 
     }
 }

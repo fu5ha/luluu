@@ -1,0 +1,9 @@
+[submodule "software/vendored/display-interface"]
+	path = software/vendored/display-interface
+	url = https://github.com/fu5ha/display-interface
+[submodule "software/vendored/rp-hal"]
+	path = software/vendored/rp-hal
+	url = https://github.com/fu5ha/rp-hal
+[submodule "software/vendored/embedded-sdmmc-rs"]
+	path = software/vendored/embedded-sdmmc-rs
+	url = https://github.com/fu5ha/embedded-sdmmc-rs

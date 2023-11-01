@@ -16,8 +16,10 @@ panic-probe = { workspace = true, features = ["print-defmt"] }
 luluu-bsp = { path = "../luluu-bsp" }
 embedded-graphics = { workspace = true }
 embedded-sdmmc = { workspace = true }
+embedded-hal-bus = { workspace = true }
+display-interface = { workspace = true }
+display-interface-spi = { workspace = true }
 mipidsi = "0.7.1"
-display-interface = "0.4.1"
 fugit = { version = "0.3.7" }
-display-interface-spi = "0.4.1"
 tinygif = "0.0.4"
+heapless = "0.7.16"
