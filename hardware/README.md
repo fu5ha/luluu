@@ -4,10 +4,18 @@ The main part of this folder is the [KiCad](https://www.kicad.org/) project for 
 There are production files for PCB production and assembly from JLCPCB in the `production/` folder. There is also a
 small 3d printed "front panel" part with exported STL files in the `FrontPanel/` folder.
 
-## Schematic
+## Online Schematic and Board View
 
-An exported PDF schematic of the latest revision is available at
-[`luluu_rev1_schematic.pdf`](./luluu_rev1_schematic.pdf)
+You can view an explorable online version of the schematic and board layout here:
+https://kicanvas.org/?github=https%3A%2F%2Fgithub.com%2Ffu5ha%2Fluluu%2Ftree%2Fmain%2Fhardware
+
+## Order and assembly
+
+The board is specifically designed to be economic and easy to order with JLCPCB's
+"economic" PCB assembly service. Boards received from JLC will be mostly-assembled
+but still require a few pieces of hand assembly: installing the battery connector,
+power switch, display connection cable, (optionally) debug connectors, and
+(optionally) STEMMAqt connector.
 
 TODO: document BOM, assembly process, etc more
 
