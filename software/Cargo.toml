@@ -37,12 +37,14 @@ embedded-graphics = { version = "0.8.1" }
 embedded-sdmmc = { version = "0.6" }
 display-interface = { version = "0.5.0-alpha.1" }
 display-interface-spi = { version = "0.5.0-alpha.1" }
+mipidsi = { version = "0.8.0-alpha.1" }
 
 [patch.crates-io]
 rp2040-hal = { path = "vendored/rp-hal/rp2040-hal" }
 embedded-sdmmc = { path = "vendored/embedded-sdmmc-rs" }
 display-interface = { path = "vendored/display-interface/" }
 display-interface-spi = { path = "vendored/display-interface/spi" }
+mipidsi = { path = "vendored/mipidsi/mipidsi" }
 
 # cargo build/run
 [profile.dev]
@@ -62,6 +64,7 @@ incremental = false
 lto = 'fat'
 opt-level = 3
 overflow-checks = false
+panic = "abort"
 
 # do not optimize proc-macro crates = faster builds from scratch
 [profile.dev.build-override]

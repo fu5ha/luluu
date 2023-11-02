@@ -135,8 +135,8 @@ pub type Framebuffer = embedded_graphics::framebuffer::Framebuffer<
     <Rgb565 as PixelColor>::Raw,
     LittleEndian,
     240,
-    240,
-    { buffer_size::<Rgb565>(240, 240) }
+    320,
+    { buffer_size::<Rgb565>(240, 320) }
 >;
 
 /// A dummy timesource, which is mostly important for creating files. Since we have no real-time
