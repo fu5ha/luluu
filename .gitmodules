@@ -10,3 +10,6 @@
 [submodule "software/vendored/mipidsi"]
 	path = software/vendored/mipidsi
 	url = https://github.com/fu5ha/mipidsi
+[submodule "software/vendored/tinygif"]
+	path = software/vendored/tinygif
+	url = https://github.com/fu5ha/tinygif

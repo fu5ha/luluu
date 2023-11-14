@@ -1,10 +1,11 @@
 #![no_std]
 
-use embedded_graphics::framebuffer::buffer_size;
-use embedded_graphics::pixelcolor::Rgb565;
-use embedded_graphics::pixelcolor::raw::LittleEndian;
-use embedded_graphics::prelude::PixelColor;
+use core::mem::MaybeUninit;
+
+use bytemuck::{NoUninit, Zeroable};
 use embedded_sdmmc::{TimeSource, Timestamp};
+use hal::rosc::{RingOscillator, Enabled};
+use rand_core::RngCore;
 pub use rp2040_hal as hal;
 
 #[cfg(feature = "rt")]
@@ -12,17 +13,21 @@ use cortex_m_rt as _;
 #[cfg(feature = "rt")]
 pub use hal::entry;
 
+pub use luluu_enc;
+
+pub use luluu_enc::{Rgb565BE, Rgb565NE, Rgb888};
+
 /// The linker will place this boot block at the start of our program image. We
 /// need this to help the ROM bootloader get our code up and running.
 #[cfg(feature = "boot2")]
 #[link_section = ".boot2"]
 #[no_mangle]
 #[used]
-pub static BOOT2_FIRMWARE: [u8; 256] = rp2040_boot2::BOOT_LOADER_GD25Q64CS;
+pub static BOOT2_FIRMWARE: [u8; 256] = rp2040_boot2::BOOT_LOADER_W25Q080;
 
 pub use hal::pac;
 
-use hal::gpio::{Pin, FunctionUart, FunctionI2c, FunctionSpi, FunctionSioInput, FunctionSioOutput, FunctionPwm, PullUp, PullNone};
+use hal::gpio::{Pin, FunctionUart, FunctionI2c, FunctionSpi, FunctionSioInput, FunctionSioOutput, FunctionPwm, PullUp, PullNone, PullDown};
 use hal::gpio::bank0::*;
 
 pub type UartTx = Pin<Gpio0, FunctionUart, PullNone>;
@@ -33,7 +38,7 @@ pub type I2cData = Pin<Gpio2, FunctionI2c, PullUp>;
 
 pub type I2cClock = Pin<Gpio3, FunctionI2c, PullUp>;
 
-pub type SpiMiso = Pin<Gpio8, FunctionSpi, PullNone>;
+pub type SpiMiso = Pin<Gpio8, FunctionSpi, PullDown>;
 
 pub type SpiMosi = Pin<Gpio15, FunctionSpi, PullNone>;
 
@@ -43,7 +48,7 @@ pub type CardCs = Pin<Gpio5, FunctionSioOutput, PullUp>;
 
 pub type DispVsync = Pin<Gpio16, FunctionSioInput, PullNone>;
 
-pub type DispReset = Pin<Gpio17, FunctionSioOutput, PullUp>;
+pub type DispReset = Pin<Gpio17, FunctionSioOutput, PullNone>;
 
 pub type DispDataCmd = Pin<Gpio18, FunctionSioOutput, PullUp>;
 
@@ -124,20 +129,24 @@ impl Pins {
             disp_backlight: pins.gpio22.reconfigure(),
         }
     }
+
+    pub fn set_fast_slew(&mut self) {
+        self.spi_miso.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+
+        self.spi_mosi.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+
+        self.spi_clock.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+
+        self.disp_cs_main.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+
+        self.disp_data_cmd.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+
+        self.card_cs.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
+    }
 }
 
 /// Layout of Spi pins.
 pub type SpiPinLayout = (SpiMosi, SpiMiso, SpiClock);
-
-/// A [`Framebuffer`][embedded_graphics::Framebuffer] type appropriate for the LuLuu!'s display module.
-pub type Framebuffer = embedded_graphics::framebuffer::Framebuffer<
-    Rgb565,
-    <Rgb565 as PixelColor>::Raw,
-    LittleEndian,
-    240,
-    320,
-    { buffer_size::<Rgb565>(240, 320) }
->;
 
 /// A dummy timesource, which is mostly important for creating files. Since we have no real-time
 /// clock, just dummy it to the beginning of 2023.
@@ -157,5 +166,89 @@ impl TimeSource for DummyTimesource {
     }
 }
 
+#[macro_export]
+macro_rules! singleton {
+    {
+        $name:ident {
+            $(#[$staticattr:meta])*
+            static mut $staticname:ident: $t:ty = $initializer:expr;
+        }
+    } => {
+        $(#[$staticattr])*
+        static mut $staticname: $t = $initializer;
+        struct $name(&'static mut $t);
+
+        impl Deref for $name {
+            type Target = $t;
+
+            #[inline(always)]
+            fn deref(&self) -> &Self::Target {
+                self.0
+            }
+        }
+
+        impl DerefMut for $name {
+            #[inline(always)]
+            fn deref_mut(&mut self) -> &mut Self::Target {
+                self.0
+            }
+        }
+
+        impl $name {
+            pub unsafe fn acquire() -> Self {
+                Self(unsafe { &mut $staticname })
+            }
+        }
+    };
+}
+
+/// Generate a random u32
+pub fn gen_rand_u32(rosc: &mut RingOscillator<Enabled>) -> u32 {
+    RngCore::next_u32(rosc)
+}
+
 /// External oscillator frequency, 12Mhz is expected by the RP2040.
 pub const XOSC_CRYSTAL_FREQ: u32 = 12_000_000;
+
+#[derive(Clone, Copy)]
+#[repr(transparent)]
+pub struct Framebuffer<P> {
+    data: [P; 240 * 240],
+}
+
+impl<P: Clone + Copy> Framebuffer<P> {
+    pub const fn const_new(initial: P) -> Self {
+        Self { data: [initial; 240 * 240] }
+    }
+}
+
+impl<P: Zeroable> Framebuffer<P> {
+    pub fn new() -> Self {
+        // SAFETY: P is zeroable
+        Self { data: unsafe { <MaybeUninit<[P; 240 * 240]>>::zeroed().assume_init() } }
+    }
+}
+
+impl<P: NoUninit> Framebuffer<P> {
+    pub fn as_bytes(&self) -> &[u8] {
+        // SAFETY: P has no uninit and is tightly packed
+        unsafe {
+            core::slice::from_raw_parts(
+                self.data.as_ptr().cast(),
+                self.data.len() * core::mem::size_of::<P>()
+            )
+        }
+    }
+}
+
+impl<P> Framebuffer<P> {
+    #[inline(always)]
+    pub fn pixels(&self) -> &[P; 240 * 240] {
+        &self.data
+    }
+
+    #[inline(always)]
+    pub fn pixels_mut(&mut self) -> &mut [P; 240 * 240] {
+        &mut self.data
+    }
+}

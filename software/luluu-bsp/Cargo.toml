@@ -5,11 +5,14 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
+luluu-enc = { workspace = true }
 cortex-m-rt = { workspace = true, optional = true }
 rp2040-boot2 = { workspace = true, optional = true }
 rp2040-hal = { workspace = true }
 embedded-graphics = { workspace = true }
-embedded-sdmmc = { workspace = true }
+embedded-sdmmc = { workspace = true, default-features = false }
+bytemuck = { workspace = true, features = ["derive"] }
+rand_core = "0.6.4"
 
 [features]
 # This is the set of features we enable by default
@@ -18,8 +21,10 @@ default = [
   "rt",
   "critical-section-impl",
   "rom-func-cache",
-  "rom-v2-intrinsics"
+  "rom-v2-intrinsics",
 ]
+
+defmt = ["luluu-enc/defmt"]
 
 # critical section that is safe for multicore use
 critical-section-impl = ["rp2040-hal/critical-section-impl"]

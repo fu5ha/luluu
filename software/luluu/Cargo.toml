@@ -14,14 +14,17 @@ defmt-rtt = { workspace = true }
 panic-probe = { workspace = true, features = ["print-defmt"] }
 # panic-halt = "0.2.0"
 
-luluu-bsp = { path = "../luluu-bsp" }
+luluu-bsp = { workspace = true, features = ["defmt"] }
+
 embedded-graphics = { workspace = true }
-embedded-sdmmc = { workspace = true }
+embedded-sdmmc = { workspace = true, default-features = false, features = ["defmt-log"] }
 embedded-hal-bus = { workspace = true }
 display-interface = { workspace = true }
 display-interface-spi = { workspace = true }
 mipidsi = { workspace = true }
-fugit = { version = "0.3.7" }
-tinygif = "0.0.4"
-heapless = "0.7.16"
-bytemuck = "1.14.0"
+fugit = { version = "0.3.7", features = ["defmt"] }
+heapless = { version = "0.8", features = ["defmt-03"] }
+bytemuck = { workspace = true, features = ["derive"] }
+# glam = { version = "0.24", default-features = false, features = ["libm"] }
+# micromath = "2.1.0"
+
