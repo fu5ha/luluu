@@ -24,7 +24,7 @@ log_level = "WARN"
 connect_under_reset = false
 
 [default.rtt]
-enabled = true
+enabled = false
 up_mode = "NoBlockSkip"
 channels = [
     { up = 0, down = 0, name = "name", up_mode = "NoBlockSkip", format = "Defmt" },

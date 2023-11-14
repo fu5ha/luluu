@@ -9,22 +9,34 @@ cortex-m = { workspace = true }
 cortex-m-rt = { workspace = true }
 embedded-hal = { workspace = true }
 
-defmt = { workspace = true }
-defmt-rtt = { workspace = true }
-panic-probe = { workspace = true, features = ["print-defmt"] }
-# panic-halt = "0.2.0"
+defmt = { workspace = true, optional = true }
+defmt-rtt = { workspace = true, optional = true }
+panic-probe = { workspace = true, optional = true }
+panic-halt = { version = "0.2.0", optional = true }
 
-luluu-bsp = { workspace = true, features = ["defmt"] }
+luluu-bsp = { workspace = true }
 
 embedded-graphics = { workspace = true }
-embedded-sdmmc = { workspace = true, default-features = false, features = ["defmt-log"] }
+embedded-sdmmc = { workspace = true, default-features = false }
 embedded-hal-bus = { workspace = true }
 display-interface = { workspace = true }
 display-interface-spi = { workspace = true }
 mipidsi = { workspace = true }
-fugit = { version = "0.3.7", features = ["defmt"] }
-heapless = { version = "0.8", features = ["defmt-03"] }
-bytemuck = { workspace = true, features = ["derive"] }
+fugit = { version = "0.3.7" }
+heapless = { version = "0.8" }
+bytemuck = { workspace = true }
 # glam = { version = "0.24", default-features = false, features = ["libm"] }
 # micromath = "2.1.0"
 
+[features]
+default = ["panic-halt"]
+probe = [
+    "defmt",
+    "defmt-rtt",
+    "panic-probe",
+    "panic-probe/print-defmt",
+    "luluu-bsp/defmt",
+    "embedded-sdmmc/defmt-log",
+    "fugit/defmt",
+    "heapless/defmt-03",
+]

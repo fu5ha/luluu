@@ -129,20 +129,6 @@ impl Pins {
             disp_backlight: pins.gpio22.reconfigure(),
         }
     }
-
-    pub fn set_fast_slew(&mut self) {
-        self.spi_miso.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-
-        self.spi_mosi.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-
-        self.spi_clock.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-
-        self.disp_cs_main.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-
-        self.disp_data_cmd.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-
-        self.card_cs.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
-    }
 }
 
 /// Layout of Spi pins.
@@ -210,26 +196,32 @@ pub fn gen_rand_u32(rosc: &mut RingOscillator<Enabled>) -> u32 {
 /// External oscillator frequency, 12Mhz is expected by the RP2040.
 pub const XOSC_CRYSTAL_FREQ: u32 = 12_000_000;
 
+/// The number of pixels in a full-size framebuffer
+pub const FULL_FRAMEBUFFER_SIZE: usize = 240 * 240;
+
+/// The number of pixels in a half-size framebuffer
+pub const HALF_FRAMEBUFFER_SIZE: usize = 120 * 120;
+
 #[derive(Clone, Copy)]
 #[repr(transparent)]
-pub struct Framebuffer<P> {
-    data: [P; 240 * 240],
+pub struct Framebuffer<P, const N: usize = FULL_FRAMEBUFFER_SIZE> {
+    data: [P; N],
 }
 
-impl<P: Clone + Copy> Framebuffer<P> {
+impl<P: Clone + Copy, const N: usize> Framebuffer<P, N> {
     pub const fn const_new(initial: P) -> Self {
-        Self { data: [initial; 240 * 240] }
+        Self { data: [initial; N] }
     }
 }
 
-impl<P: Zeroable> Framebuffer<P> {
+impl<P: Zeroable, const N: usize> Framebuffer<P, N> {
     pub fn new() -> Self {
         // SAFETY: P is zeroable
-        Self { data: unsafe { <MaybeUninit<[P; 240 * 240]>>::zeroed().assume_init() } }
+        Self { data: unsafe { <MaybeUninit<[P; N]>>::zeroed().assume_init() } }
     }
 }
 
-impl<P: NoUninit> Framebuffer<P> {
+impl<P: NoUninit, const N: usize> Framebuffer<P, N> {
     pub fn as_bytes(&self) -> &[u8] {
         // SAFETY: P has no uninit and is tightly packed
         unsafe {
@@ -241,14 +233,14 @@ impl<P: NoUninit> Framebuffer<P> {
     }
 }
 
-impl<P> Framebuffer<P> {
+impl<P, const N: usize> Framebuffer<P, N> {
     #[inline(always)]
-    pub fn pixels(&self) -> &[P; 240 * 240] {
+    pub const fn pixels(&self) -> &[P; N] {
         &self.data
     }
 
     #[inline(always)]
-    pub fn pixels_mut(&mut self) -> &mut [P; 240 * 240] {
+    pub fn pixels_mut(&mut self) -> &mut [P; N] {
         &mut self.data
     }
 }
