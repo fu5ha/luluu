@@ -64,12 +64,11 @@ const DISP_BAUDRATE: HertzU32 = HertzU32::kHz(62_500);
 #[entry]
 fn main() -> ! {
     let mut peripherals = pac::Peripherals::take().unwrap();
-    let core = pac::CorePeripherals::take().unwrap();
     let mut watchdog = Watchdog::new(peripherals.WATCHDOG);
-    let sio = Sio::new(peripherals.SIO);
 
     let clocks = init_clocks_and_plls(
         bsp::XOSC_CRYSTAL_FREQ,
+        bsp::XOSC_STABLE_DELAY_MILLIS,
         peripherals.XOSC,
         peripherals.CLOCKS,
         peripherals.PLL_SYS,
@@ -80,9 +79,13 @@ fn main() -> ! {
     .ok()
     .unwrap();
 
-    let mut delay = cortex_m::delay::Delay::new(core.SYST, clocks.system_clock.freq().to_Hz());
+    let core = pac::CorePeripherals::take().unwrap();
+
+    let mut delay = cortex_m::delay::Delay::new(core.SYST, 125_000_000);
 
     let mut timer = hal::Timer::new(peripherals.TIMER, &mut peripherals.RESETS, &clocks);
+
+    let sio = Sio::new(peripherals.SIO);
 
     let mut pins = bsp::Pins::new(
         peripherals.IO_BANK0,
@@ -180,10 +183,10 @@ fn main() -> ! {
     delay.delay_us(120);
     disp_reset.set_high().unwrap();
     delay.delay_ms(100);
-    disp_reset.set_low().unwrap();
-    delay.delay_us(10);
-    disp_reset.set_high().unwrap();
-    delay.delay_ms(100);
+    // disp_reset.set_low().unwrap();
+    // delay.delay_us(10);
+    // disp_reset.set_high().unwrap();
+    // delay.delay_ms(100);
 
     shared_spi.borrow_mut().set_baudrate(clocks.peripheral_clock.freq(), 400.kHz());
 
@@ -218,12 +221,14 @@ fn main() -> ! {
         // memory. in this way we basically get two display-frames to update the display's memory.
         while !disp_vsync.is_high().unwrap() {}
         while disp_vsync.is_high().unwrap() {};
-        delay.delay_us(500);
+        delay.delay_us(300);
 
         // let draw_start = timer.get_counter_low();
 
         display.set_pixels_565be(0, 0, 240, 240, fb.as_bytes()).unwrap();
-        disp_backlight.set_high().unwrap();
+        if frame == 2 {
+            disp_backlight.set_high().unwrap();
+        }
 
         // let draw_end = timer.get_counter_low();
         // if frame % 32 == 0 {

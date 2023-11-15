@@ -1,6 +1,6 @@
 [default.probe]
 protocol = "Swd"
-speed = 20000
+speed = 24000
 # If you only have one probe cargo embed will pick automatically
 # Otherwise: add your probe's VID/PID/serial to filter
 

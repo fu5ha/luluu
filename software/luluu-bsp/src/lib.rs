@@ -193,8 +193,12 @@ pub fn gen_rand_u32(rosc: &mut RingOscillator<Enabled>) -> u32 {
     RngCore::next_u32(rosc)
 }
 
-/// External oscillator frequency, 12Mhz is expected by the RP2040.
+/// Crystal oscillator frequency, 12Mhz is expected by the RP2040 and it's what ours is.
 pub const XOSC_CRYSTAL_FREQ: u32 = 12_000_000;
+
+/// Crystal oscillator stability delay. Depends on crystal properties, 100ms seems to be
+/// required for our crystal.
+pub const XOSC_STABLE_DELAY_MILLIS: u32 = 100;
 
 /// The number of pixels in a full-size framebuffer
 pub const FULL_FRAMEBUFFER_SIZE: usize = 240 * 240;
