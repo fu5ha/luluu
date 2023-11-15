@@ -1,5 +1,16 @@
 #![no_std]
 
+#[cfg(feature = "defmt")]
+use defmt::warn;
+
+#[cfg(feature = "log")]
+use log::warn;
+
+#[cfg(not(any(feature = "defmt", feature = "log")))]
+macro_rules! warn {
+    ($($x:tt)*) => { };
+}
+
 use bytemuck::AnyBitPattern;
 use bytemuck::NoUninit;
 use bytemuck::TransparentWrapper;
@@ -47,6 +58,41 @@ impl NumFrames {
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, AnyBitPattern, NoUninit, TransparentWrapper)]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[repr(transparent)]
+pub struct FrameRate(pub u8);
+
+impl FrameRate {
+    /// Whether the value is a supported framerate
+    #[inline(always)]
+    pub fn is_supported(self) -> bool {
+        match self.0 {
+            1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 15 => true,
+            _ => false,
+        }
+    }
+
+    pub fn make_nearest_supported(&mut self) {
+        let frame_rate = match self.0 {
+            0 => {
+                warn!("WARN: 0 frame rate detected, setting to 1");
+                1
+            },
+            x @ 1..=6 => x,
+            7..=8 => 8,
+            9..=11 => 10,
+            12..=13 => 12,
+            14..=16 => 15,
+            _ => {
+                warn!("WARN: higher framerate than supported detected. Setting to 15.");
+                15
+            }
+        };
+        self.0 = frame_rate;
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, AnyBitPattern, NoUninit)]
 #[cfg_attr(feature = "defmt", derive(defmt::Format))]
 #[repr(C, align(1))]
@@ -55,7 +101,7 @@ pub struct Header {
     pub version: Version,
     pub encoding: Encoding,
     pub size: u8,
-    pub frame_rate: u8,
+    pub frame_rate: FrameRate,
     pub n_frames: NumFrames,
 }
 

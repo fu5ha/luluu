@@ -113,7 +113,7 @@ fn main() -> ! {
 
     let shared_spi = RefCell::new(spi);
 
-    let sdcard_spi = RefCellDevice::new(&shared_spi, DummyCsPin, timer.clone());
+    let sdcard_spi: RefCellDevice<'_, Spi<hal::spi::Enabled, pac::SPI1, (hal::gpio::Pin<hal::gpio::bank0::Gpio15, hal::gpio::FunctionSpi, hal::gpio::PullNone>, hal::gpio::Pin<hal::gpio::bank0::Gpio8, hal::gpio::FunctionSpi, hal::gpio::PullDown>, hal::gpio::Pin<hal::gpio::bank0::Gpio14, hal::gpio::FunctionSpi, hal::gpio::PullNone>), 8>, DummyCsPin, hal::Timer> = RefCellDevice::new(&shared_spi, DummyCsPin, timer.clone());
 
     pins.card_cs.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
     let card_cs = pins.card_cs;
@@ -166,15 +166,49 @@ fn main() -> ! {
 
     defmt::assert_eq!(read, bsp::luluu_enc::HEADER_SIZE);
 
-    let header = bsp::luluu_enc::Header::decode((&file_read_buffer[..bsp::luluu_enc::HEADER_SIZE]).try_into().unwrap()).unwrap();
+    let mut header = bsp::luluu_enc::Header::decode((&file_read_buffer[..bsp::luluu_enc::HEADER_SIZE]).try_into().unwrap()).unwrap();
 
     defmt::assert_eq!(header.encoding, bsp::luluu_enc::Encoding::RGB565BE);
+    header.frame_rate.make_nearest_supported();
 
     match header.size {
         60 => read_60px_frame_into_main_fb(&mut img_file, &mut *file_read_buffer, &mut *fb),
         120 => read_120px_frame_into_main_fb(&mut img_file, &mut *file_read_buffer, &mut *fb),
         _ => defmt::panic!("Unsupported file size: {}. Only support 120x120px or 60x60px", header.size),
     }
+
+    #[cfg(feature = "probe")]
+    defmt::info!("frame rate: {}", header.frame_rate);
+
+    let display_frame_rate = match header.size {
+        60 | 120 => {
+            match header.frame_rate.0 {
+                1..=2 => mipidsi::FrameRate::Hz40,
+                3 => mipidsi::FrameRate::Hz42,
+                4 => mipidsi::FrameRate::Hz40,
+                5 => mipidsi::FrameRate::Hz40,
+                6 => mipidsi::FrameRate::Hz60,
+                8 => mipidsi::FrameRate::Hz72,
+                10 => mipidsi::FrameRate::Hz90,
+                12 => mipidsi::FrameRate::Hz72,
+                15 => mipidsi::FrameRate::Hz90,
+                _ => defmt::unreachable!(),
+            }
+        }
+        240 => {
+            match header.frame_rate.0 {
+                1..=2 => mipidsi::FrameRate::Hz40,
+                3 => mipidsi::FrameRate::Hz60,
+                4..=6 => mipidsi::FrameRate::Hz90,
+                8 => mipidsi::FrameRate::Hz72,
+                10 => mipidsi::FrameRate::Hz90,
+                12 => mipidsi::FrameRate::Hz72,
+                15 => mipidsi::FrameRate::Hz90,
+                _ => defmt::unreachable!(),
+            }
+        }
+        _ => defmt::unreachable!()
+    };
 
     let mut disp_reset = pins.disp_reset;
     disp_reset.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
@@ -204,13 +238,13 @@ fn main() -> ! {
         .init(&mut timer, None::<DispReset>)
         .unwrap();
     display.set_tearing_effect(mipidsi::TearingEffect::Vertical).unwrap();
-    display.set_frame_rate(mipidsi::FrameRate::Hz90, Default::default()).unwrap();
+    display.set_frame_rate(display_frame_rate, Default::default()).unwrap();
 
     let _baud = shared_spi.borrow_mut().set_baudrate(clocks.peripheral_clock.freq(), DISP_BAUDRATE);
     #[cfg(feature = "probe")]
     defmt::info!("set spi baud: {}", _baud);
 
-    let frame_budget_micros: u32 = (1_000_000 / header.frame_rate as u32) - 200;
+    let frame_budget_micros: u32 = (1_000_000 / header.frame_rate.0 as u32) - 200;
 
     let mut frame: u32 = 1; // because we already loaded the first frame.
     loop {

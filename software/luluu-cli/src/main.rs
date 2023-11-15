@@ -26,6 +26,8 @@ enum Commands {
 }
 
 fn main() -> Result<(), eyre::Error> {
+    pretty_env_logger::init();
+
     let cli = Cli::parse();
     match &cli.command {
         Commands::Convert { file_path, frame_rate } => {
@@ -61,7 +63,7 @@ fn main() -> Result<(), eyre::Error> {
                 match &mut delay {
                     delay @ None => *delay = Some(frame.delay),
                     Some(delay) => if *delay != frame.delay {
-                        println!("WARN: Detected uneven delay between frames. This is unsupported; computing frame rate based on first frame delay.")
+                        log::warn!("Detected uneven delay between frames. This is unsupported; computing frame rate based on first frame delay.")
                     }
                 }
 
@@ -92,21 +94,14 @@ fn main() -> Result<(), eyre::Error> {
                 eyre::bail!("Found a GIF but it had zero frames.");
             }
 
-            let frame_rate = frame_rate.unwrap_or_else(|| {
-                match delay.unwrap() {
-                    0..=7 => {
-                        println!("WARN: Detected frame rate is faster than maximum supported; setting to 10");
-                        10
-                    },
-                    8..=10 => 10,
-                    11..=16 => 8,
-                    17..=25 => 5,
-                    _ => {
-                        println!("WARN: detected very low frame rate. Setting to 4.");
-                        4
-                    }
-                }
-            });
+            let mut frame_rate = luluu_enc::FrameRate(frame_rate.unwrap_or_else(|| {
+                let delay = delay.unwrap().max(1);
+                (100 / delay) as u8
+            }));
+
+            frame_rate.make_nearest_supported();
+
+            // supported frame rates: 1, 2, 3, 4, 5, 6, 8, 10, 12, 15
 
             drop(decoder);
 
