@@ -66,17 +66,19 @@ pub struct FrameRate(pub u8);
 impl FrameRate {
     /// Whether the value is a supported framerate
     #[inline(always)]
-    pub fn is_supported(self) -> bool {
+    pub fn is_supported(self, size: u8) -> bool {
         match self.0 {
-            1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 15 => true,
+            1 | 2 | 3 | 4 | 5 | 6 | 8 => true,
+            10 | 12 => size == 60 || size == 120,
+            15 | 20 | 24 => size == 60,
             _ => false,
         }
     }
 
-    pub fn make_nearest_supported(&mut self) {
-        let frame_rate = match self.0 {
+    pub fn make_nearest_supported(&mut self, size: Size) -> Result<(), Error> {
+        let mut frame_rate = match self.0 {
             0 => {
-                warn!("WARN: 0 frame rate detected, setting to 1");
+                warn!("0 frame rate detected, setting to 1");
                 1
             },
             x @ 1..=6 => x,
@@ -84,12 +86,41 @@ impl FrameRate {
             9..=11 => 10,
             12..=13 => 12,
             14..=16 => 15,
+            19..=21 => 20,
+            22..=26 => 24,
             _ => {
-                warn!("WARN: higher framerate than supported detected. Setting to 15.");
+                warn!("higher framerate than supported detected. Setting to 15.");
                 15
             }
         };
+        match size.0 {
+            60 => (),
+            120 => if frame_rate > 12 {
+                warn!("Frame rates higher than 12 are not supported at 120x120. Setting to 12.");
+                frame_rate = 12;
+            },
+            240 => if frame_rate > 4 {
+                warn!("Frame rates higher than 4 are not supported at 240x240. Setting to 4.");
+                frame_rate = 4;
+            }
+            _ => return Err(Error::UnsupportedSize(size)),
+        };
         self.0 = frame_rate;
+        Ok(())
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, AnyBitPattern, NoUninit, TransparentWrapper)]
+#[cfg_attr(feature = "defmt", derive(defmt::Format))]
+#[repr(transparent)]
+pub struct Size(pub u8);
+
+impl Size {
+    pub fn is_supported(self) -> bool {
+        match self.0 {
+            60 | 120 | 240 => true,
+            _ => false,
+        }
     }
 }
 
@@ -100,7 +131,7 @@ pub struct Header {
     pub magic: MagicBytes,
     pub version: Version,
     pub encoding: Encoding,
-    pub size: u8,
+    pub size: Size,
     pub frame_rate: FrameRate,
     pub n_frames: NumFrames,
 }
@@ -124,6 +155,14 @@ impl Header {
             encoding => return Err(Error::UnknownEncoding(encoding))
         }
 
+        if !header.size.is_supported() {
+            return Err(Error::UnsupportedSize(header.size))
+        }
+
+        if !header.frame_rate.is_supported(header.size.0) {
+            return Err(Error::UnsupportedFrameRate(header.frame_rate))
+        }
+
         Ok(header)
     }
 
@@ -140,6 +179,8 @@ pub enum Error {
     WrongMagicBytes(MagicBytes),
     UnknownVersion(Version),
     UnknownEncoding(Encoding),
+    UnsupportedSize(Size),
+    UnsupportedFrameRate(FrameRate),
 }
 
 #[derive(Clone, Copy, AnyBitPattern, NoUninit, TransparentWrapper)]

@@ -26,7 +26,7 @@ enum Commands {
 }
 
 fn main() -> Result<(), eyre::Error> {
-    pretty_env_logger::init();
+    pretty_env_logger::init_custom_env("debug,luluu_enc=warn");
 
     let cli = Cli::parse();
     match &cli.command {
@@ -94,12 +94,14 @@ fn main() -> Result<(), eyre::Error> {
                 eyre::bail!("Found a GIF but it had zero frames.");
             }
 
+            let size = luluu_enc::Size(size.unwrap());
+
             let mut frame_rate = luluu_enc::FrameRate(frame_rate.unwrap_or_else(|| {
                 let delay = delay.unwrap().max(1);
                 (100 / delay) as u8
             }));
 
-            frame_rate.make_nearest_supported();
+            frame_rate.make_nearest_supported(size).unwrap();
 
             // supported frame rates: 1, 2, 3, 4, 5, 6, 8, 10, 12, 15
 
@@ -109,7 +111,7 @@ fn main() -> Result<(), eyre::Error> {
                 magic: MagicBytes::CORRECT,
                 version: luluu_enc::Version::ZERO,
                 encoding: luluu_enc::Encoding::RGB565BE,
-                size: size.unwrap(),
+                size,
                 frame_rate,
                 n_frames: luluu_enc::NumFrames::from_u16(frame_number),
             };

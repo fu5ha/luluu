@@ -105,7 +105,7 @@ where
     const DST_PIXELS_SIZE: usize = 240;
     const SCALE_FACTOR: usize = 2;
 
-    // 4096 / (120 * 2) = 17 but we want evenly divisible into 60
+    // 4096 / (120 * 2) = 17 but we want evenly divisible into 120
     const SRC_ROWS_PER_BATCH: usize = 15;
     const SRC_PIXELS_PER_BATCH: usize = SRC_ROWS_PER_BATCH * SRC_PIXELS_SIZE;
     const SRC_BYTES_PER_BATCH: usize = SRC_PIXELS_PER_BATCH * 2;
@@ -142,63 +142,44 @@ where
     }
 }
 
-// #[allow(dead_code)]
-// pub fn read_sd_frame_into_intermediate_fb<D, F>(
-//     img_file: &mut F,
-//     header: &bsp::luluu_enc::Header,
-//     file_read_buffer: &mut heapless::Vec<u8, { FILE_BUFFER_SIZE }>,
-//     fb: &mut bsp::Framebuffer<Rgb565BE, { bsp::HALF_FRAMEBUFFER_SIZE }>
-// ) -> Result<(), WrongSize>
-// where
-//     D: embedded_sdmmc::BlockDevice,
-//     F: ReadFile<D>,
-// {
-//     let side_size: usize = match header.size {
-//         60 => 60,
-//         120 => 120,
-//         _ => return Err(WrongSize),
-//     };
-//     let total_pixels_per_frame = side_size * side_size;
-//     let data_bytes_per_frame = total_pixels_per_frame * 2;
-//     let mut i = 0;
-//     let mut bytes_read = 0;
-//     while i < total_pixels_per_frame {
-//         let to_read_this_batch = (data_bytes_per_frame - bytes_read).min(FILE_BUFFER_SIZE);
+pub fn read_240px_frame_into_main_fb<D, F>(
+    img_file: &mut F,
+    file_read_buffer: &mut [u8; FILE_BUFFER_SIZE],
+    fb: &mut bsp::Framebuffer<Rgb565BE, { bsp::FULL_FRAMEBUFFER_SIZE }>
+)
+where
+    D: embedded_sdmmc::BlockDevice,
+    F: ReadFile<D>,
+{
+    const PIXELS_SIZE: usize = 240;
 
-//         file_read_buffer.clear();
-//         file_read_buffer.resize_default(to_read_this_batch).unwrap();
+    // 4096 / (240 * 2) = 8, we want evenly divisible into 240 which it is :)
+    const ROWS_PER_BATCH: usize = 8;
+    const PIXELS_PER_BATCH: usize = ROWS_PER_BATCH * PIXELS_SIZE;
+    const BYTES_PER_BATCH: usize = PIXELS_PER_BATCH * 2;
+    const BATCHES: usize = PIXELS_SIZE / ROWS_PER_BATCH;
 
-//         let read = img_file.read(file_read_buffer).unwrap();
-//         defmt::debug_assert_eq!(read, to_read_this_batch);
-//         bytes_read += to_read_this_batch;
+    assert!(file_read_buffer.len() >= BYTES_PER_BATCH);
+    assert!(fb.pixels().len() >= PIXELS_SIZE * PIXELS_SIZE);
 
-//         let read_pixels = Rgb565BE::cast_bytes(&*file_read_buffer);
-//         let dst_pixels = &mut fb.pixels_mut()[i..(i + read_pixels.len())];
-//         dst_pixels.copy_from_slice(read_pixels);
+    for batch in 0..BATCHES {
+        let read_slice = unsafe { &mut *file_read_buffer.as_mut_ptr().cast::<[u8; BYTES_PER_BATCH]>() };
+        let read = img_file.read(read_slice).unwrap();
+        defmt::debug_assert_eq!(read, BYTES_PER_BATCH);
 
-//         i += 1;
-//     }
+        let read_pixels = unsafe { &*read_slice.as_ptr().cast::<[Rgb565BE; PIXELS_PER_BATCH]>() };
 
-//     Ok(())
-// }
+        let dst_y_row_offset = batch * ROWS_PER_BATCH;
+        for y_relative in 0..ROWS_PER_BATCH {
+            let src_row_offset = (y_relative * PIXELS_SIZE) as isize;
+            let src_row_start = unsafe { read_pixels.as_ptr().offset(src_row_offset) };
 
-// #[allow(dead_code)]
-// pub fn blit_to_main_fb<const SCALE: usize>(
-//     intermediate: &bsp::Framebuffer<Rgb565BE, { bsp::HALF_FRAMEBUFFER_SIZE }>,
-//     main: &mut bsp::Framebuffer<Rgb565BE>,
-// ) {
-//     let (shr, src_side_len) = match SCALE {
-//         2 => (1, 120),
-//         4 => (2, 60),
-//         _ => defmt::unreachable!("Bad scaling factor for blit"),
-//     };
-
-//     for (y, row) in main.pixels_mut().chunks_exact_mut(240).enumerate() {
-//         let src_y = y >> shr;
-//         for (x, dst_pixel) in row.iter_mut().enumerate() {
-//             let src_x = x >> shr;
-//             let src_i = src_x + src_y * src_side_len;
-//             *dst_pixel = *unsafe { intermediate.pixels().get_unchecked(src_i) };
-//         }
-//     }
-// }
+            let dst_y = dst_y_row_offset + y_relative;
+            let dst_row_start_offset = (dst_y * PIXELS_SIZE) as isize;
+            let dst_row_start = unsafe { fb.pixels_mut().as_mut_ptr().offset(dst_row_start_offset) };
+            unsafe {
+                core::ptr::copy_nonoverlapping(src_row_start, dst_row_start, PIXELS_SIZE)
+            }
+        }
+    }
+}
