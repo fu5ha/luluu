@@ -54,7 +54,6 @@ where
     const SRC_PIXELS_SIZE: usize = 60;
     const DST_PIXELS_SIZE: usize = 240;
     const SCALE_FACTOR: usize = 4;
-    const SCALE_SHIFT: i32 = 2;
 
     // 4096 / (60 * 2) = 34 but we want evenly divisible into 60
     const SRC_ROWS_PER_BATCH: usize = 30;
@@ -80,12 +79,12 @@ where
             let src_row = unsafe { &*src_row_start.cast::<[Rgb565BE; SRC_PIXELS_SIZE]>() };
 
             for dst_y_offset in 0..SCALE_FACTOR {
-                let dst_y = (batch * DST_ROWS_PER_BATCH) + (src_y_relative << SCALE_SHIFT) + dst_y_offset;
+                let dst_y = (batch * DST_ROWS_PER_BATCH) + (src_y_relative * SCALE_FACTOR) + dst_y_offset;
                 let dst_row_start_offset = (dst_y * DST_PIXELS_SIZE) as isize;
                 let dst_row_start = unsafe { fb.pixels_mut().as_mut_ptr().offset(dst_row_start_offset) };
                 let dst_row = unsafe { &mut *dst_row_start.cast::<[Rgb565BE; DST_PIXELS_SIZE]>() };
                 for (dst_x, dst_pixel) in dst_row.iter_mut().enumerate() {
-                    let src_x = dst_x >> SCALE_SHIFT;
+                    let src_x = dst_x / SCALE_FACTOR;
                     *dst_pixel = unsafe { *src_row.get_unchecked(src_x) };
                 }
             }
@@ -105,7 +104,6 @@ where
     const SRC_PIXELS_SIZE: usize = 120;
     const DST_PIXELS_SIZE: usize = 240;
     const SCALE_FACTOR: usize = 2;
-    const SCALE_SHIFT: i32 = 1;
 
     // 4096 / (120 * 2) = 17 but we want evenly divisible into 60
     const SRC_ROWS_PER_BATCH: usize = 15;
@@ -131,12 +129,12 @@ where
             let src_row = unsafe { &*src_row_start.cast::<[Rgb565BE; SRC_PIXELS_SIZE]>() };
 
             for dst_y_offset in 0..SCALE_FACTOR {
-                let dst_y = (batch * DST_ROWS_PER_BATCH) + (src_y_relative << SCALE_SHIFT) + dst_y_offset;
+                let dst_y = (batch * DST_ROWS_PER_BATCH) + (src_y_relative * SCALE_FACTOR) + dst_y_offset;
                 let dst_row_start_offset = (dst_y * DST_PIXELS_SIZE) as isize;
                 let dst_row_start = unsafe { fb.pixels_mut().as_mut_ptr().offset(dst_row_start_offset) };
                 let dst_row = unsafe { &mut *dst_row_start.cast::<[Rgb565BE; DST_PIXELS_SIZE]>() };
                 for (dst_x, dst_pixel) in dst_row.iter_mut().enumerate() {
-                    let src_x = dst_x >> SCALE_SHIFT;
+                    let src_x = dst_x / SCALE_FACTOR;
                     *dst_pixel = unsafe { *src_row.get_unchecked(src_x) };
                 }
             }

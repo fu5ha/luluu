@@ -9,7 +9,6 @@ speed = 24000
 # usb_pid = "4444"
 # serial = "test"
 
-
 [default.flashing]
 enabled = true
 
@@ -19,7 +18,6 @@ halt_afterwards = false
 
 [default.general]
 chip = "RP2040"
-log_level = "WARN"
 # RP2040 does not support connect_under_reset
 connect_under_reset = false
 
@@ -33,6 +31,9 @@ timeout = 3000
 show_timestamps = true
 log_enabled = false
 log_path = "./logs"
+
+[probe.rtt]
+enabled = true
 
 [default.gdb]
 enabled = false

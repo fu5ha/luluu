@@ -14,6 +14,17 @@ use std::io::Write;
 use std::path::PathBuf;
 
 fn main() {
+    // link with flip-link
+    println!("cargo:rustc-linker=flip-link");
+
+    // required linker args
+    println!("cargo:rustc-link-arg=--nmagic");
+    println!("cargo:rustc-link-arg=-Tlink.x");
+
+    // if we're in probe config, use defmt linker script
+    if cfg!(feature = "probe") {
+        println!("cargo:rustc-link-arg=-Tdefmt.x");
+    }
     // Put `memory.x` in our output directory and ensure it's
     // on the linker search path.
     let out = &PathBuf::from(env::var_os("OUT_DIR").unwrap());

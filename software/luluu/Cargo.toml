@@ -12,7 +12,7 @@ embedded-hal = { workspace = true }
 defmt = { workspace = true, optional = true }
 defmt-rtt = { workspace = true, optional = true }
 panic-probe = { workspace = true, optional = true }
-panic-halt = { version = "0.2.0", optional = true }
+panic-halt = { version = "0.2.0" }
 
 luluu-bsp = { workspace = true }
 
@@ -29,14 +29,14 @@ bytemuck = { workspace = true }
 # micromath = "2.1.0"
 
 [features]
-default = ["panic-halt"]
+default = []
 probe = [
     "defmt",
     "defmt-rtt",
     "panic-probe",
     "panic-probe/print-defmt",
     "luluu-bsp/defmt",
-    "embedded-sdmmc/defmt-log",
+    # "embedded-sdmmc/defmt-log",
     "fugit/defmt",
     "heapless/defmt-03",
 ]

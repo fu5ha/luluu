@@ -79,6 +79,9 @@ fn main() -> ! {
     .ok()
     .unwrap();
 
+    let mut fb = unsafe { MainFramebuffer::acquire() };
+    let mut file_read_buffer = unsafe { FileReadBuffer::acquire() };
+
     let core = pac::CorePeripherals::take().unwrap();
 
     let mut delay = cortex_m::delay::Delay::new(core.SYST, 125_000_000);
@@ -96,9 +99,6 @@ fn main() -> ! {
 
     let mut disp_backlight = pins.disp_backlight;
     disp_backlight.set_low().unwrap();
-
-    let mut fb = unsafe { MainFramebuffer::acquire() };
-    let mut file_read_buffer = unsafe { FileReadBuffer::acquire() };
 
     pins.spi_mosi.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
     pins.spi_miso.set_slew_rate(hal::gpio::OutputSlewRate::Fast);
