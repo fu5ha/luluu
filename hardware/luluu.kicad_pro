@@ -465,8 +465,8 @@
     },
     "net_colors": null,
     "netclass_assignments": {
-      "USB_D+": "USB Data",
-      "USB_D-": "USB Data"
+      "/USB_D+": "USB Data",
+      "/USB_D-": "USB Data"
     },
     "netclass_patterns": [
       {
