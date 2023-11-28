@@ -56,14 +56,14 @@
         }
       ],
       "drc_exclusions": [
-        "hole_clearance|156645000|101525000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|1bfd4c9e-9ffc-4524-8e0f-153e438fadca",
-        "hole_clearance|156645000|101525000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|246ab4a6-de8a-4a87-87f6-c9ec582148f7",
-        "hole_clearance|156645000|101725000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|197e2c5e-c3f0-41ac-9ea7-595189de12b5",
-        "hole_clearance|156645000|101725000|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db|6d5f2a34-9d0c-4512-9989-338bb6377427",
-        "hole_clearance|156645000|95925000|c4521d3c-34d6-4066-be46-3d0b374b6813|6cfa3830-e014-4d5d-a0c7-bbfdfaac2cb2",
-        "hole_clearance|156645000|95925000|c4521d3c-34d6-4066-be46-3d0b374b6813|b684c113-6bb9-4fa3-9466-1349c5221c10",
-        "hole_clearance|156645000|96125000|c4521d3c-34d6-4066-be46-3d0b374b6813|29e286a1-0ffe-47f1-b513-9e1e5656a4da",
-        "hole_clearance|156645000|96125000|c4521d3c-34d6-4066-be46-3d0b374b6813|e575f2b4-d82a-458e-8b60-7114176733f1",
+        "hole_clearance|156645000|101525000|1bfd4c9e-9ffc-4524-8e0f-153e438fadca|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db",
+        "hole_clearance|156645000|101525000|246ab4a6-de8a-4a87-87f6-c9ec582148f7|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db",
+        "hole_clearance|156645000|101725000|197e2c5e-c3f0-41ac-9ea7-595189de12b5|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db",
+        "hole_clearance|156645000|101725000|6d5f2a34-9d0c-4512-9989-338bb6377427|7faaa4d4-5d76-4ba6-ae67-6edaf429f5db",
+        "hole_clearance|156645000|95925000|6cfa3830-e014-4d5d-a0c7-bbfdfaac2cb2|c4521d3c-34d6-4066-be46-3d0b374b6813",
+        "hole_clearance|156645000|95925000|b684c113-6bb9-4fa3-9466-1349c5221c10|c4521d3c-34d6-4066-be46-3d0b374b6813",
+        "hole_clearance|156645000|96125000|29e286a1-0ffe-47f1-b513-9e1e5656a4da|c4521d3c-34d6-4066-be46-3d0b374b6813",
+        "hole_clearance|156645000|96125000|e575f2b4-d82a-458e-8b60-7114176733f1|c4521d3c-34d6-4066-be46-3d0b374b6813",
         "unconnected_items|156625000|103145000|37362f46-7738-4819-93fb-6980ca1a2a9f|2b6bd232-179a-4ae2-89cf-1bf303738a48",
         "unconnected_items|160825000|103145000|2b6bd232-179a-4ae2-89cf-1bf303738a48|7ba071a9-11d7-4499-aa6c-f0898112ff92",
         "unconnected_items|160825000|94505000|7ba071a9-11d7-4499-aa6c-f0898112ff92|6433d4db-7759-4c27-8359-153fbd08acf7"
@@ -113,7 +113,7 @@
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
-        "track_dangling": "ignore",
+        "track_dangling": "warning",
         "track_width": "error",
         "tracks_crossing": "error",
         "unconnected_items": "error",
@@ -130,7 +130,7 @@
         "min_hole_to_hole": 0.254,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
-        "min_resolved_spokes": 1,
+        "min_resolved_spokes": 2,
         "min_silk_clearance": 0.09999999999999999,
         "min_text_height": 0.7999999999999999,
         "min_text_thickness": 0.15,
@@ -421,7 +421,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "luluu.kicad_pro",
+    "filename": "luluu-rounded.kicad_pro",
     "version": 1
   },
   "net_settings": {
